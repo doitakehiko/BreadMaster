@@ -32,7 +32,28 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +67,117 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppConstants.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormB.Designer.cs">
+      <DependentUpon>FormB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormC.Designer.cs">
+      <DependentUpon>FormC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormF.Designer.cs">
+      <DependentUpon>FormF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormI.Designer.cs">
+      <DependentUpon>FormI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormIns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIns.Designer.cs">
+      <DependentUpon>FormIns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormR.Designer.cs">
+      <DependentUpon>FormR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRM.Designer.cs">
+      <DependentUpon>FormRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSandwich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSandwich.Designer.cs">
+      <DependentUpon>FormSandwich.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSauce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSauce.Designer.cs">
+      <DependentUpon>FormSauce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormT.Designer.cs">
+      <DependentUpon>FormT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpd.Designer.cs">
+      <DependentUpon>FormUpd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormB.resx">
+      <DependentUpon>FormB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormC.resx">
+      <DependentUpon>FormC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormF.resx">
+      <DependentUpon>FormF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormI.resx">
+      <DependentUpon>FormI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIns.resx">
+      <DependentUpon>FormIns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormR.resx">
+      <DependentUpon>FormR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRM.resx">
+      <DependentUpon>FormRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSandwich.resx">
+      <DependentUpon>FormSandwich.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSauce.resx">
+      <DependentUpon>FormSauce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormT.resx">
+      <DependentUpon>FormT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpd.resx">
+      <DependentUpon>FormUpd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
