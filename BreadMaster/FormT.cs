@@ -75,6 +75,7 @@ namespace BreadMaster
                         command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxId.Text)));
                         int rowsAffected = command.ExecuteNonQuery();
                         MessageBox.Show($"{rowsAffected} 行が削除されました。");
+                        buttonReset_Click(sender, e);
                         FormT_Load(sender, e);
                     }
                 }

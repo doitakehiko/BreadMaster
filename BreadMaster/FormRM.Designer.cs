@@ -54,6 +54,7 @@
             this.buttonReset.TabIndex = 52;
             this.buttonReset.Text = "リセット";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonOK
             // 
@@ -83,6 +84,7 @@
             this.buttonDel.TabIndex = 49;
             this.buttonDel.Text = "削除";
             this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonUpd
             // 
@@ -92,6 +94,7 @@
             this.buttonUpd.TabIndex = 48;
             this.buttonUpd.Text = "更新";
             this.buttonUpd.UseVisualStyleBackColor = true;
+            this.buttonUpd.Click += new System.EventHandler(this.buttonUpd_Click);
             // 
             // buttonIns
             // 

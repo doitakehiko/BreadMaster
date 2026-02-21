@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,9 @@ namespace BreadMaster
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
             dataGridView1.ReadOnly = true;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.MultiSelect = false;
+            dataGridView2.ReadOnly = true;
             string sql = "SELECT * FROM vSandwich";
             try
             {
@@ -39,11 +43,22 @@ namespace BreadMaster
                         OracleDataAdapter adapter = new OracleDataAdapter(sql, connection);
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
-
-                        // DataGridViewにデータをバインド [2]
                         dataGridView1.DataSource = dataTable;
                         textBoxLog.Text = sCrLf + sql + textBoxLog.Text;
                     }
+                    /*using (OracleCommand cmd2 = new OracleCommand(sql2, connection))
+                    {
+                        if (string.IsNullOrWhiteSpace(textBoxId.Text) == false)
+                        {
+                            cmd2.Parameters.Add("id", OracleDbType.Int32).Value = int.Parse(textBoxId.Text);
+                            OracleDataAdapter adapter2 = new OracleDataAdapter(cmd2);
+                            DataTable dataTable2 = new DataTable();
+                            adapter2.Fill(dataTable2);
+                            dataGridView2.DataSource = dataTable2;
+                            textBoxLog.Text = sCrLf + sql2 + textBoxLog.Text;
+                        }
+                    }*/
+                    setI();
                 }
             }
             catch (Exception ex)
@@ -53,7 +68,36 @@ namespace BreadMaster
                 Console.WriteLine($"エラー: {ex.Message}");
             }
         }
-
+        private void setI()
+        {
+            string sql2 = "SELECT * FROM vIngredients WHERE sid = :id";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    connection.Open();
+                    Console.WriteLine("接続成功");
+                    textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
+                    using (OracleCommand cmd2 = new OracleCommand(sql2, connection))
+                    {
+                        if (string.IsNullOrWhiteSpace(textBoxId.Text) == false)
+                        {
+                            cmd2.Parameters.Add("id", OracleDbType.Int32).Value = int.Parse(textBoxId.Text);
+                            OracleDataAdapter adapter2 = new OracleDataAdapter(cmd2);
+                            DataTable dataTable2 = new DataTable();
+                            adapter2.Fill(dataTable2);
+                            dataGridView2.DataSource = dataTable2;
+                            textBoxLog.Text = sCrLf + sql2 + textBoxLog.Text;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
+                Console.WriteLine($"エラー: {ex.Message}");
+            }
+        }
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             DataGridView.HitTestInfo hit = dataGridView1.HitTest(e.X, e.Y);
@@ -64,8 +108,8 @@ namespace BreadMaster
                 textBoxId.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
                 textBoxName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
                 textBoxTypeId.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();    
-                textBoxTName.Text = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString(); 
-
+                textBoxTName.Text = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
+                setI();
             }
         }
 
@@ -90,6 +134,7 @@ namespace BreadMaster
                         int rowsAffected = command.ExecuteNonQuery();
                         textBoxLog.Text = sCrLf + $"{rowsAffected} 行が削除されました。" + textBoxLog.Text;
                         MessageBox.Show($"{rowsAffected} 行が削除されました。");
+                        buttonReset_Click(sender, e);
                         FormSandwich_Load(sender, e);
                     }
                 }
@@ -108,7 +153,7 @@ namespace BreadMaster
                 MessageBox.Show("サンドイッチ名が入力されていません。");
                 return;
             }
-            string sqlIns = "INSERT INTO sandwich_master (sandwich_name) VALUES (:name)";
+            string sqlIns = "INSERT INTO sandwich_master (sandwich_name, type_id) VALUES (:name, :id)";
             string sql2 = "SELECT sandwich_master_seq.CURRVAL as id FROM dual";
             try
             {
@@ -120,6 +165,9 @@ namespace BreadMaster
                     using (OracleCommand command = new OracleCommand(sqlIns, connection))
                     {
                         command.Parameters.Add(new OracleParameter("name", textBoxName.Text));
+                        command.Parameters.Add("id", OracleDbType.Int32).Value =
+                                string.IsNullOrWhiteSpace(textBoxTypeId.Text) ? (object)DBNull.Value : int.Parse(textBoxTypeId.Text);
+
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
@@ -185,6 +233,8 @@ namespace BreadMaster
         {
             textBoxId.Clear();
             textBoxName.Clear();
+            textBoxTName.Clear();
+            textBoxTypeId.Clear();
             FormSandwich_Load(sender, e);
         }
 
@@ -211,7 +261,7 @@ namespace BreadMaster
                 return;
             }
             FormI f = new FormI();
-            f.setid(textBoxTypeId.Text);
+            f.setid(textBoxId.Text);
             f.setname(textBoxName.Text);
             f.ShowDialog(this);
             f.Dispose();
@@ -229,6 +279,30 @@ namespace BreadMaster
         public string getname()
         {
             return textBoxName.Text;
+        }
+        public string getTname()
+        {
+            return textBoxTName.Text;
+        }
+        public string getTypeId()
+        {
+            return textBoxTypeId.Text;
+        }
+        public void setTname(string tname)
+        {
+            textBoxTName.Text = tname;
+        }
+        public void setTypeId(string typeId)
+        {
+            textBoxTypeId.Text = typeId;
+        }
+        public void setid(string id)
+        {
+            textBoxId.Text = id;
+        }
+        public void setname(string name)
+        {
+            textBoxName.Text = name;
         }
 
         private void buttonTClr_Click(object sender, EventArgs e)

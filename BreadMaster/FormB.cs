@@ -74,6 +74,7 @@ namespace BreadMaster
                         int rowsAffected = command.ExecuteNonQuery();
                         textBoxLog.Text = sCrLf + $"{rowsAffected} 行が削除されました。" + textBoxLog.Text;
                         MessageBox.Show($"{rowsAffected} 行が削除されました。");
+                        buttonReset_Click(sender, e);
                         FormB_Load(sender, e);
                     }
                 }

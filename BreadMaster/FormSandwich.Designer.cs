@@ -44,7 +44,9 @@
             this.textBoxTName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonTClr = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,7 +55,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 37);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 297);
+            this.dataGridView1.Size = new System.Drawing.Size(372, 297);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -173,6 +175,7 @@
             // 
             this.textBoxTName.Location = new System.Drawing.Point(514, 12);
             this.textBoxTName.Name = "textBoxTName";
+            this.textBoxTName.ReadOnly = true;
             this.textBoxTName.Size = new System.Drawing.Size(274, 19);
             this.textBoxTName.TabIndex = 38;
             // 
@@ -195,11 +198,21 @@
             this.buttonTClr.UseVisualStyleBackColor = true;
             this.buttonTClr.Click += new System.EventHandler(this.buttonTClr_Click);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(406, 37);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 21;
+            this.dataGridView2.Size = new System.Drawing.Size(382, 300);
+            this.dataGridView2.TabIndex = 41;
+            // 
             // FormSandwich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 505);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.buttonTClr);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxTName);
@@ -220,6 +233,7 @@
             this.Text = "FormSandwich";
             this.Load += new System.EventHandler(this.FormSandwich_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +257,6 @@
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonTClr;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

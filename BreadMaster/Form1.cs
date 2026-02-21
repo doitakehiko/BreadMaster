@@ -24,14 +24,6 @@ namespace BreadMaster
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*if (textBoxFId.Modified | textBoxSauceId.Modified | textBoxSandwichId.Modified | textBoxBId.Modified | textBoxRId.Modified)
-            {
-                dataGridView1.Enabled = false;
-            }
-            else
-            {
-                dataGridView1.Enabled = true;
-            }*/
             if (flgUpd) {   
                 dataGridView1.Enabled = false;
             } else
@@ -132,6 +124,8 @@ namespace BreadMaster
         private void buttonSandwich_Click(object sender, EventArgs e)
         {
             FormSandwich f = new FormSandwich();
+            f.setid(textBoxSandwichId.Text);
+            f.setname(textBoxSandwich.Text);
             f.ShowDialog(this);
             if (f.DialogResult == DialogResult.OK)
             {
@@ -149,7 +143,6 @@ namespace BreadMaster
             f.ShowDialog(this);
             if (f.DialogResult == DialogResult.OK)
             {
-                //textBoxBId.Text = f.getid();
                 textBoxBId.Text = f.getid();
                 textBoxBName.Text = f.getname();
                 flgUpd = true;
@@ -184,16 +177,41 @@ namespace BreadMaster
                 return;
             }
             FormIns f = new FormIns();
-            f.setId(textBoxId.Text);
-            f.setTextBoxId(textBoxId.Text);
             f.setTextBoxFId(textBoxFId.Text);
             f.setTextBoxSauceId(textBoxSauceId.Text);
             f.setTextBoxSandwichId(textBoxSandwichId.Text);
             f.setTextBoxBId(textBoxBId.Text);
             f.setTextBoxRId(textBoxRId.Text);
 
+            f.setTextBoxFname(textBoxFName.Text);
+            f.setTextBoxSauceName(textBoxSauce.Text);
+            f.setTextBoxSandwichName(textBoxSandwich.Text);
+            f.setTextBoxRName(textBoxRName.Text);
+            f.setTextBoxBName(textBoxBName.Text);
+            f.setTextBoxCNameJp(textBoxCNameJp.Text);
+            f.setTextBoxCNameEn(textBoxCNameEn.Text);
+            f.setTextBoxCCode(textBoxCode.Text);
+
+
             f.ShowDialog(this);
             flgUpd = false;
+            if (f.DialogResult == DialogResult.OK)
+            {
+                textBoxId.Text = f.getTextBoxId();
+                textBoxFId.Text = f.getTextBoxFId();
+                textBoxSauceId.Text = f.getTextBoxSauceId();
+                textBoxSandwichId.Text = f.getTextBoxSandwichId();
+                textBoxBId.Text = f.getTextBoxBId();
+                textBoxRId.Text = f.getTextBoxRId();
+                textBoxFName.Text = f.getTextBoxFName();
+                textBoxSauce.Text = f.getTextBoxSauceName();
+                textBoxSandwich.Text = f.getTextBoxSandwichName();
+                textBoxRName.Text = f.getTextBoxRName();
+                textBoxBName.Text = f.getTextBoxBName();
+                textBoxCNameJp.Text = f.getTextBoxCNameJp();
+                textBoxCNameEn.Text = f.getTextBoxCNameEn();
+                textBoxCode.Text = f.getTextBoxCCode();
+            }
             f.Dispose();
             Form1_Load(sender, e);
 
@@ -207,7 +225,6 @@ namespace BreadMaster
                 return;
             }
             FormUpd f = new FormUpd();
-            f.setId(textBoxId.Text);
             f.setTextBoxId(textBoxId.Text);
             f.setTextBoxFId(textBoxFId.Text);
             f.setTextBoxSauceId(textBoxSauceId.Text);
@@ -262,5 +279,38 @@ namespace BreadMaster
             Form1_Load(sender, e);
         }
 
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            if (textBoxId.Text == "")
+            {
+                MessageBox.Show("IDが入力されていません。");
+                return;
+            }
+            string sqlDel = "DELETE FROM bread_master WHERE id = :id";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    connection.Open();
+                    Console.WriteLine("接続成功");
+                    textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
+                    using (OracleCommand command = new OracleCommand(sqlDel, connection))
+                    {
+                        command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxId.Text)));
+                        int rowsAffected = command.ExecuteNonQuery();
+                        textBoxLog.Text = sCrLf + $"{rowsAffected} 行が削除されました。" + textBoxLog.Text;
+                        MessageBox.Show($"{rowsAffected} 行が削除されました。");
+                        buttonReset_Click(sender, e);
+                        Form1_Load(sender, e);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
+                Console.WriteLine($"エラー: {ex.Message}");
+            }
+
+        }
     }
 }

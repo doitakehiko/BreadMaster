@@ -46,8 +46,8 @@
             this.textBoxCNameJp = new System.Windows.Forms.TextBox();
             this.textBoxBName = new System.Windows.Forms.TextBox();
             this.textBoxRName = new System.Windows.Forms.TextBox();
-            this.textBoxSandwich = new System.Windows.Forms.TextBox();
-            this.textBoxSauce = new System.Windows.Forms.TextBox();
+            this.textBoxSandwichName = new System.Windows.Forms.TextBox();
+            this.textBoxSauceName = new System.Windows.Forms.TextBox();
             this.textBoxFName = new System.Windows.Forms.TextBox();
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -209,21 +209,21 @@
             this.textBoxRName.Size = new System.Drawing.Size(317, 19);
             this.textBoxRName.TabIndex = 73;
             // 
-            // textBoxSandwich
+            // textBoxSandwichName
             // 
-            this.textBoxSandwich.Location = new System.Drawing.Point(264, 151);
-            this.textBoxSandwich.Name = "textBoxSandwich";
-            this.textBoxSandwich.ReadOnly = true;
-            this.textBoxSandwich.Size = new System.Drawing.Size(905, 19);
-            this.textBoxSandwich.TabIndex = 72;
+            this.textBoxSandwichName.Location = new System.Drawing.Point(264, 151);
+            this.textBoxSandwichName.Name = "textBoxSandwichName";
+            this.textBoxSandwichName.ReadOnly = true;
+            this.textBoxSandwichName.Size = new System.Drawing.Size(905, 19);
+            this.textBoxSandwichName.TabIndex = 72;
             // 
-            // textBoxSauce
+            // textBoxSauceName
             // 
-            this.textBoxSauce.Location = new System.Drawing.Point(264, 112);
-            this.textBoxSauce.Name = "textBoxSauce";
-            this.textBoxSauce.ReadOnly = true;
-            this.textBoxSauce.Size = new System.Drawing.Size(905, 19);
-            this.textBoxSauce.TabIndex = 71;
+            this.textBoxSauceName.Location = new System.Drawing.Point(264, 112);
+            this.textBoxSauceName.Name = "textBoxSauceName";
+            this.textBoxSauceName.ReadOnly = true;
+            this.textBoxSauceName.Size = new System.Drawing.Size(905, 19);
+            this.textBoxSauceName.TabIndex = 71;
             // 
             // textBoxFName
             // 
@@ -251,6 +251,7 @@
             this.buttonOK.TabIndex = 12;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
@@ -302,8 +303,8 @@
             this.Controls.Add(this.textBoxCNameJp);
             this.Controls.Add(this.textBoxBName);
             this.Controls.Add(this.textBoxRName);
-            this.Controls.Add(this.textBoxSandwich);
-            this.Controls.Add(this.textBoxSauce);
+            this.Controls.Add(this.textBoxSandwichName);
+            this.Controls.Add(this.textBoxSauceName);
             this.Controls.Add(this.textBoxFName);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.buttonOK);
@@ -337,8 +338,8 @@
         private System.Windows.Forms.TextBox textBoxCNameJp;
         private System.Windows.Forms.TextBox textBoxBName;
         private System.Windows.Forms.TextBox textBoxRName;
-        private System.Windows.Forms.TextBox textBoxSandwich;
-        private System.Windows.Forms.TextBox textBoxSauce;
+        private System.Windows.Forms.TextBox textBoxSandwichName;
+        private System.Windows.Forms.TextBox textBoxSauceName;
         private System.Windows.Forms.TextBox textBoxFName;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;

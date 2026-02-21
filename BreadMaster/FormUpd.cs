@@ -15,7 +15,6 @@ namespace BreadMaster
     {
         string connectionString = BreadMasterAppConstants.connectionString;
         string sCrLf = BreadMasterAppConstants.sCrLf;
-        string strid = "";
         public FormUpd()
         {
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace BreadMaster
                     textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
                     using (OracleCommand command = new OracleCommand(sql, connection))
                     {
-                        command.Parameters.Add(new OracleParameter("id", strid));
+                        command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxId.Text)));
                         using (OracleDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -53,10 +52,7 @@ namespace BreadMaster
             }
 
         }
-        public void setId(string id)
-        {
-            strid = id;
-        }
+
         public void setTextBoxId(string id)
         {
             textBoxId.Text = id;
@@ -153,6 +149,9 @@ namespace BreadMaster
             {
                 textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
                 Console.WriteLine($"エラー: {ex.Message}");
+                this.DialogResult = DialogResult.None;
+                return;
+
             }
         }
 

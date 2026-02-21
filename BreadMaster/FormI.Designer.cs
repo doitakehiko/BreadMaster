@@ -42,15 +42,17 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxIName = new System.Windows.Forms.TextBox();
             this.buttonAddDel = new System.Windows.Forms.Button();
+            this.textBoxIId = new System.Windows.Forms.TextBox();
+            this.textBoxSIId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(95, 633);
+            this.buttonReset.Location = new System.Drawing.Point(369, 140);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.Size = new System.Drawing.Size(69, 23);
             this.buttonReset.TabIndex = 42;
             this.buttonReset.Text = "リセット";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -65,6 +67,7 @@
             this.buttonOK.TabIndex = 41;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
@@ -150,6 +153,7 @@
             this.dataGridViewAdd.RowTemplate.Height = 21;
             this.dataGridViewAdd.Size = new System.Drawing.Size(346, 375);
             this.dataGridViewAdd.TabIndex = 43;
+            this.dataGridViewAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewAdd_MouseClick_1);
             // 
             // buttonAdd
             // 
@@ -163,10 +167,11 @@
             // 
             // textBoxIName
             // 
-            this.textBoxIName.Location = new System.Drawing.Point(13, 63);
+            this.textBoxIName.Location = new System.Drawing.Point(95, 63);
             this.textBoxIName.Name = "textBoxIName";
-            this.textBoxIName.Size = new System.Drawing.Size(349, 19);
+            this.textBoxIName.Size = new System.Drawing.Size(267, 19);
             this.textBoxIName.TabIndex = 45;
+            this.textBoxIName.TextChanged += new System.EventHandler(this.textBoxIName_TextChanged);
             // 
             // buttonAddDel
             // 
@@ -178,11 +183,30 @@
             this.buttonAddDel.UseVisualStyleBackColor = true;
             this.buttonAddDel.Click += new System.EventHandler(this.buttonAddDel_Click);
             // 
+            // textBoxIId
+            // 
+            this.textBoxIId.Location = new System.Drawing.Point(12, 63);
+            this.textBoxIId.Name = "textBoxIId";
+            this.textBoxIId.ReadOnly = true;
+            this.textBoxIId.Size = new System.Drawing.Size(75, 19);
+            this.textBoxIId.TabIndex = 47;
+            this.textBoxIId.TextChanged += new System.EventHandler(this.textBoxIId_TextChanged);
+            // 
+            // textBoxSIId
+            // 
+            this.textBoxSIId.Location = new System.Drawing.Point(633, 99);
+            this.textBoxSIId.Name = "textBoxSIId";
+            this.textBoxSIId.ReadOnly = true;
+            this.textBoxSIId.Size = new System.Drawing.Size(75, 19);
+            this.textBoxSIId.TabIndex = 48;
+            // 
             // FormI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 686);
+            this.Controls.Add(this.textBoxSIId);
+            this.Controls.Add(this.textBoxIId);
             this.Controls.Add(this.buttonAddDel);
             this.Controls.Add(this.textBoxIName);
             this.Controls.Add(this.buttonAdd);
@@ -223,5 +247,7 @@
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.TextBox textBoxIName;
         private System.Windows.Forms.Button buttonAddDel;
+        private System.Windows.Forms.TextBox textBoxIId;
+        private System.Windows.Forms.TextBox textBoxSIId;
     }
 }

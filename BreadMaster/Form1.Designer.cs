@@ -59,6 +59,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.buttonDel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,7 +217,7 @@
             // 
             // buttonIns
             // 
-            this.buttonIns.Location = new System.Drawing.Point(1175, 76);
+            this.buttonIns.Location = new System.Drawing.Point(1175, 80);
             this.buttonIns.Name = "buttonIns";
             this.buttonIns.Size = new System.Drawing.Size(75, 23);
             this.buttonIns.TabIndex = 21;
@@ -286,7 +287,7 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(1175, 36);
+            this.buttonReset.Location = new System.Drawing.Point(1175, 47);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 30;
@@ -339,11 +340,22 @@
             this.label5.TabIndex = 35;
             this.label5.Text = "地域ID";
             // 
+            // buttonDel
+            // 
+            this.buttonDel.Location = new System.Drawing.Point(1175, 12);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(75, 23);
+            this.buttonDel.TabIndex = 36;
+            this.buttonDel.Text = "削除";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1286, 763);
+            this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -417,6 +429,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonDel;
     }
 }
 
