@@ -131,6 +131,8 @@ namespace BreadMaster
             {
                 // 行インデックスと列インデックスを取得
                 int rowIndex = hit.RowIndex;
+                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count - 1) return;
+
                 textBoxId.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
                 textBoxName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
             }

@@ -70,8 +70,6 @@ namespace BreadMaster
         private void buttonReset_Click(object sender, EventArgs e)
         {
             bindingSource1.Filter = null;
-            //textBoxId.Clear();
-            //textBoxName.Clear();
             textBoxIName.Clear();
             textBoxSIId.Clear();
             textBoxIId.Clear();
@@ -149,36 +147,6 @@ namespace BreadMaster
 
                 Console.WriteLine($"エラー: {ex.Message}");
             }
-
-            /*string sql2 = "SELECT id, ingredients_name, sid, iid FROM vIngredients WHERE sid = :id";
-            try
-            {
-                using (OracleConnection connection = new OracleConnection(connectionString))
-                {
-                    connection.Open();
-                    Console.WriteLine("接続成功");
-                    textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
-                    using (OracleCommand cmd2 = new OracleCommand(sql2, connection))
-                    {
-                        if (string.IsNullOrWhiteSpace(textBoxId.Text) == false)
-                        {
-                            cmd2.Parameters.Add("id", OracleDbType.Int32).Value = int.Parse(textBoxId.Text);
-                            OracleDataReader reader2 = cmd2.ExecuteReader();
-                            while(reader2.Read())
-                            {
-                                dataGridViewAdd.Rows.Add(reader2["id"].ToString(), reader2["ingredients_name"].ToString(), reader2["sid"].ToString(), reader2["iid"].ToString());
-
-                            }
-                            textBoxLog.Text = sCrLf + sql2 + textBoxLog.Text;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
-                Console.WriteLine($"エラー: {ex.Message}");
-            }*/
         }
 
         private void buttonUpd_Click(object sender, EventArgs e)
@@ -291,41 +259,6 @@ namespace BreadMaster
                 textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
                 Console.WriteLine($"エラー: {ex.Message}");
             }
-            /*if (textBoxName.Modified )
-            {
-                string sql = "SELECT id FROM ingredients_master WHERE ingredients_name = :name";
-
-                try
-                {
-                    using (OracleConnection connection = new OracleConnection(connectionString))
-                    {
-                        connection.Open();
-                        Console.WriteLine("接続成功");
-                        if (BreadMasterAppConstants.getUniqMasterId(connection, sql, textBoxName.Text) == 0)
-                        {
-                            DialogResult result = MessageBox.Show("食材マスターに登録しますか？", "食材マスターにありませんでした", MessageBoxButtons.OKCancel);
-                            if (result == DialogResult.OK)
-                            {
-                                buttonIns_Click(sender, e);
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
-                    Console.WriteLine($"エラー: {ex.Message}");
-                    return;
-                }
-
-
-            }*/
-
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -333,18 +266,11 @@ namespace BreadMaster
             DataGridView.HitTestInfo hit = dataGridView1.HitTest(e.X, e.Y);
             if (hit.Type == DataGridViewHitTestType.Cell)
             {
-                /*// 行インデックスと列インデックスを取得
                 int rowIndex = hit.RowIndex;
-                //textBoxSIId.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-                textBoxIId.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
-                textBoxIName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
-                */
-
-                int rowIndex = hit.RowIndex;
-                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count) return;
+                if (rowIndex < 0 || rowIndex  >= dataGridView1.Rows.Count - 1) return;
 
                 // 先に値をローカルに退避（TextChanged の副作用を防ぐ）
-                var row = dataGridView1.Rows[rowIndex];
+                DataGridViewRow row = dataGridView1.Rows[rowIndex];
                 string id = row.Cells[0].Value?.ToString() ?? "";
                 string name = row.Cells[1].Value?.ToString() ?? "";
 
@@ -389,7 +315,7 @@ namespace BreadMaster
                     textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
                     using (OracleCommand command = new OracleCommand(sqlDel, connection))
                     {
-                        command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxIId.Text)));
+                        command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxSIId.Text)));
                         int rowsAffected = command.ExecuteNonQuery();
                         MessageBox.Show($"{rowsAffected} 行が削除されました。");
                         FormI_Load(sender, e);
@@ -417,65 +343,10 @@ namespace BreadMaster
         }
         // C#
         private void buttonOK_Click(object sender, EventArgs e)
-        {
-            /*// サンドイッチID を textBoxId から取得
-            if (!int.TryParse(textBoxId.Text, out int sandwichId))
-            {
-                MessageBox.Show("サンドイッチIDが不正です。");
-                return;
-            }
-
-            // dataGridViewAdd から ingredients_id を集める
-            var ids = new List<int>();
-            foreach (DataGridViewRow r in dataGridViewAdd.Rows)
-            {
-                if (r.IsNewRow) continue;
-                var v = r.Cells["ID"].Value ?? r.Cells[0].Value;
-                if (v == null) continue;
-                if (int.TryParse(v.ToString(), out int iid)) ids.Add(iid);
-                else
-                {
-                    MessageBox.Show($"無効な食材ID: {v}");
-                    return;
-                }
-            }
-
-            if (ids.Count == 0)
-            {
-                MessageBox.Show("追加されている食材がありません。");
-                return;
-            }
-
-            string sql = "INSERT INTO sandwich_ingredients (sandwich_id, ingredients_id) VALUES (:sid, :iid)";
-            try
-            {
-                using (OracleConnection connection = new OracleConnection(connectionString))
-                {
-                    connection.Open();
-                    using (OracleCommand command = new OracleCommand(sql, connection))
-                    {
-                        // 配列バインドで sandwichId を繰り返す配列を作る
-                        int[] sidArray = Enumerable.Repeat(sandwichId, ids.Count).ToArray();
-                        int[] iidArray = ids.ToArray();
-
-                        command.ArrayBindCount = ids.Count;
-                        command.Parameters.Add(":sid", OracleDbType.Int32, sidArray, ParameterDirection.Input);
-                        command.Parameters.Add(":iid", OracleDbType.Int32, iidArray, ParameterDirection.Input);
-                        command.ExecuteNonQuery();
-                    }
-                }
-                FormI_Load(sender, e);
-            }
-            catch (Exception ex)
-            {
-                textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
-            }*/
+        { 
+        
         }
 
-        private void textBoxIId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridViewAdd_MouseClick_1(object sender, MouseEventArgs e)
         {
@@ -484,7 +355,8 @@ namespace BreadMaster
             {
                 // 行インデックスと列インデックスを取得
                 int rowIndex = hit.RowIndex;
-                textBoxSIId.Text = dataGridViewAdd.Rows[rowIndex].Cells[0].Value.ToString();
+                if (rowIndex < 0 || rowIndex >= dataGridViewAdd.Rows.Count - 1) return;
+                textBoxSIId.Text = dataGridViewAdd.Rows[rowIndex].Cells[5].Value.ToString();
             }
         }
     }

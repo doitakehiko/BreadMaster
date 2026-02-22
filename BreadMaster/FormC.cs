@@ -95,10 +95,10 @@ namespace BreadMaster
             if (hit.Type == DataGridViewHitTestType.Cell)
             {
                 int rowIndex = hit.RowIndex;
-                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count) return;
+                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count - 1) return;
 
                 // 先に値をローカルに退避（TextChanged の副作用を防ぐ）
-                var row = dataGridView1.Rows[rowIndex];
+                DataGridViewRow row = dataGridView1.Rows[rowIndex];
                 string id = row.Cells[0].Value?.ToString() ?? "";
                 string nameJp = row.Cells[1].Value?.ToString() ?? "";
                 string nameEn = row.Cells[2].Value?.ToString() ?? "";

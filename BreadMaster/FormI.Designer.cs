@@ -44,6 +44,8 @@
             this.buttonAddDel = new System.Windows.Forms.Button();
             this.textBoxIId = new System.Windows.Forms.TextBox();
             this.textBoxSIId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdd)).BeginInit();
             this.SuspendLayout();
@@ -167,7 +169,7 @@
             // 
             // textBoxIName
             // 
-            this.textBoxIName.Location = new System.Drawing.Point(95, 63);
+            this.textBoxIName.Location = new System.Drawing.Point(95, 72);
             this.textBoxIName.Name = "textBoxIName";
             this.textBoxIName.Size = new System.Drawing.Size(267, 19);
             this.textBoxIName.TabIndex = 45;
@@ -185,12 +187,11 @@
             // 
             // textBoxIId
             // 
-            this.textBoxIId.Location = new System.Drawing.Point(12, 63);
+            this.textBoxIId.Location = new System.Drawing.Point(12, 72);
             this.textBoxIId.Name = "textBoxIId";
             this.textBoxIId.ReadOnly = true;
             this.textBoxIId.Size = new System.Drawing.Size(75, 19);
             this.textBoxIId.TabIndex = 47;
-            this.textBoxIId.TextChanged += new System.EventHandler(this.textBoxIId_TextChanged);
             // 
             // textBoxSIId
             // 
@@ -200,11 +201,31 @@
             this.textBoxSIId.Size = new System.Drawing.Size(75, 19);
             this.textBoxSIId.TabIndex = 48;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "食材マスター";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(442, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 12);
+            this.label2.TabIndex = 84;
+            this.label2.Text = "各サンドイッチの食材リスト";
+            // 
             // FormI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 686);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSIId);
             this.Controls.Add(this.textBoxIId);
             this.Controls.Add(this.buttonAddDel);
@@ -249,5 +270,7 @@
         private System.Windows.Forms.Button buttonAddDel;
         private System.Windows.Forms.TextBox textBoxIId;
         private System.Windows.Forms.TextBox textBoxSIId;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

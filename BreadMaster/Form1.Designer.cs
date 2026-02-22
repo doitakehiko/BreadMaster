@@ -60,6 +60,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonDel = new System.Windows.Forms.Button();
+            this.buttonList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,7 +202,7 @@
             this.buttonC.Name = "buttonC";
             this.buttonC.Size = new System.Drawing.Size(100, 23);
             this.buttonC.TabIndex = 17;
-            this.buttonC.Text = "国";
+            this.buttonC.Text = "地域・国";
             this.buttonC.UseVisualStyleBackColor = true;
             this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
             // 
@@ -350,11 +351,22 @@
             this.buttonDel.UseVisualStyleBackColor = true;
             this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
+            // buttonList
+            // 
+            this.buttonList.Location = new System.Drawing.Point(1156, 608);
+            this.buttonList.Name = "buttonList";
+            this.buttonList.Size = new System.Drawing.Size(75, 23);
+            this.buttonList.TabIndex = 37;
+            this.buttonList.Text = "食材リスト";
+            this.buttonList.UseVisualStyleBackColor = true;
+            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1286, 763);
+            this.Controls.Add(this.buttonList);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -430,6 +442,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonDel;
+        private System.Windows.Forms.Button buttonList;
     }
 }
 

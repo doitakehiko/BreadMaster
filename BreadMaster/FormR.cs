@@ -65,10 +65,10 @@ namespace BreadMaster
             if (hit.Type == DataGridViewHitTestType.Cell)
             {
                 int rowIndex = hit.RowIndex;
-                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count) return;
+                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count - 1) return;
 
                 // 先に値をローカルに退避（TextChanged の副作用を防ぐ）
-                var row = dataGridView1.Rows[rowIndex];
+                DataGridViewRow row = dataGridView1.Rows[rowIndex];
                 string id = row.Cells[0].Value?.ToString() ?? "";
                 string name = row.Cells[1].Value?.ToString() ?? ""; 
                 string nameJp = row.Cells[2].Value?.ToString() ?? "";
@@ -220,12 +220,7 @@ namespace BreadMaster
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (textBoxId.Text == "")
-            {
-                MessageBox.Show("地域IDが入力されていません。");
-                this.DialogResult = DialogResult.None;
-                return;
-            } 
+
         }
     }
 }

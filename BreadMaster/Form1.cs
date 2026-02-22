@@ -73,6 +73,8 @@ namespace BreadMaster
             {
                 // 行インデックスと列インデックスを取得
                 int rowIndex = hit.RowIndex;
+                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count - 1) return;
+
                 textBoxId.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
                 textBoxFName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
                 textBoxSauce.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
@@ -100,7 +102,10 @@ namespace BreadMaster
             {
                 textBoxFName.Text = f.getname();
                 textBoxFId.Text = f.getid();
-                flgUpd = true;
+                if( checkInput())
+                {
+                    flgUpd = true;
+                }
             }
             f.Dispose();
             Form1_Load(sender, e);
@@ -114,7 +119,10 @@ namespace BreadMaster
             {
                 textBoxSauce.Text = f.getname();
                 textBoxSauceId.Text = f.getid(); ;
-                flgUpd = true;
+                if (checkInput())
+                {
+                    flgUpd = true;
+                }
 
             }
             f.Dispose();
@@ -131,9 +139,12 @@ namespace BreadMaster
             {
                 textBoxSandwich.Text = f.getname();
                 textBoxSandwichId.Text = f.getid();
-                f.Dispose();
-                flgUpd = true;
+                if (checkInput())
+                {
+                    flgUpd = true;
+                } 
             }
+            f.Dispose();
             Form1_Load(sender, e);
         }
 
@@ -145,7 +156,10 @@ namespace BreadMaster
             {
                 textBoxBId.Text = f.getid();
                 textBoxBName.Text = f.getname();
-                flgUpd = true;
+                if (checkInput())
+                {
+                    flgUpd = true;
+                }
             }
             f.Dispose();
             Form1_Load(sender, e);
@@ -162,13 +176,22 @@ namespace BreadMaster
                 textBoxCNameEn.Text = f.getTextBoxNameEn();
                 textBoxCode.Text = f.getTextBoxCode();
                 textBoxRId.Text = f.getRId();
-                flgUpd = true;
-
+                if (checkInput())
+                {
+                    flgUpd = true;
+                }
             }
             f.Dispose();
             Form1_Load(sender, e);
         }
-
+        private Boolean checkInput()
+        {
+            if (textBoxFId.Text != "" | textBoxSauceId.Text != "" | textBoxSandwichId.Text != "" | textBoxRId.Text != "" | textBoxBId.Text != "")
+            {
+                return true;
+            }
+            return false;
+        }
         private void buttonIns_Click(object sender, EventArgs e)
         {
             if (textBoxSandwichId.Text == "" | textBoxRId.Text == "" | textBoxBId.Text == "")
@@ -311,6 +334,14 @@ namespace BreadMaster
                 Console.WriteLine($"エラー: {ex.Message}");
             }
 
+        }
+
+        private void buttonList_Click(object sender, EventArgs e)
+        {
+            FormList f = new FormList();
+            f.ShowDialog(this);
+
+            f.Dispose();
         }
     }
 }

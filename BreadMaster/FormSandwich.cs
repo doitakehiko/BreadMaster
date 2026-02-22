@@ -46,18 +46,7 @@ namespace BreadMaster
                         dataGridView1.DataSource = dataTable;
                         textBoxLog.Text = sCrLf + sql + textBoxLog.Text;
                     }
-                    /*using (OracleCommand cmd2 = new OracleCommand(sql2, connection))
-                    {
-                        if (string.IsNullOrWhiteSpace(textBoxId.Text) == false)
-                        {
-                            cmd2.Parameters.Add("id", OracleDbType.Int32).Value = int.Parse(textBoxId.Text);
-                            OracleDataAdapter adapter2 = new OracleDataAdapter(cmd2);
-                            DataTable dataTable2 = new DataTable();
-                            adapter2.Fill(dataTable2);
-                            dataGridView2.DataSource = dataTable2;
-                            textBoxLog.Text = sCrLf + sql2 + textBoxLog.Text;
-                        }
-                    }*/
+
                     setI();
                 }
             }
@@ -105,6 +94,8 @@ namespace BreadMaster
             {
                 // 行インデックスと列インデックスを取得
                 int rowIndex = hit.RowIndex;
+                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count - 1) return;
+
                 textBoxId.Text = dataGridView1.Rows[rowIndex].Cells[0].Value.ToString();
                 textBoxName.Text = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
                 textBoxTypeId.Text = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();    
@@ -264,6 +255,7 @@ namespace BreadMaster
             f.setid(textBoxId.Text);
             f.setname(textBoxName.Text);
             f.ShowDialog(this);
+            setI();
             f.Dispose();
 
         }
@@ -272,6 +264,7 @@ namespace BreadMaster
         {
 
         }
+
         public string getid()
         {
             return textBoxId.Text;
@@ -310,5 +303,7 @@ namespace BreadMaster
             textBoxTName.Clear();
             textBoxTypeId.Clear();
         }
+
+
     }
 }
