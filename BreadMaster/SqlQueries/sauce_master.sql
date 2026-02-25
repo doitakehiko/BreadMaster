@@ -40,5 +40,4 @@ end;
 alter trigger sauce_master_trigger enable;
 
 
-INSERT INTO sauce_master ( sauce_name ) VALUES ('ヨークシャー・プディング・スモークサーモン・オープンサンドイッチのソース');
 SELECT * FROM sauce_master;

@@ -40,6 +40,7 @@ begin
 end;
 
 alter trigger country_code_master_trigger enable;
+
 SELECT * FROM country_code_master;
 
 INSERT INTO country_code_master (country_master_id, country_code) SELECT id, :code FROM country_master WHERE country_name_jp = :namejp AND country_name_en = :nameen

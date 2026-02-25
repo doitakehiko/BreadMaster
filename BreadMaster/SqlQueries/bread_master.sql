@@ -48,7 +48,6 @@ end;
 
 alter trigger bread_trigger enable;
 
-INSERT INTO bread_master ( filling_id, sauce_id , sandwich_id, region_id, bread_name_id ) VALUES (1, NULL, 1, 1, 1);
 
 
 

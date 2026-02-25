@@ -95,7 +95,7 @@ namespace BreadMaster
             }
             string sqlIns = "INSERT INTO sauce_master (sauce_name) VALUES (:name)";
             string sql2 = "SELECT sauce_master_seq.CURRVAL as id FROM dual";
-           try
+            try
             {
                 using (OracleConnection connection = new OracleConnection(connectionString))
                 {
@@ -112,7 +112,7 @@ namespace BreadMaster
                         }
                         textBoxLog.Text = sCrLf + $"{rowsAffected} 行が挿入されました。" + textBoxLog.Text;
                         MessageBox.Show($"{rowsAffected} 行が挿入されました。");
-                        FormSauce_Load(sender, e);  
+                        FormSauce_Load(sender, e);
                     }
                 }
             }
@@ -197,6 +197,14 @@ namespace BreadMaster
         public string getname()
         {
             return textBoxName.Text;
+        }
+        public void setid(string id)
+        {
+            textBoxId.Text = id;
+        }
+        public void setname(string name)
+        {
+            textBoxName.Text = name;
         }
     }
 }

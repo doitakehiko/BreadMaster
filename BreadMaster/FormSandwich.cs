@@ -16,6 +16,7 @@ namespace BreadMaster
     {
         string connectionString = BreadMasterAppConstants.connectionString;
         string sCrLf = BreadMasterAppConstants.sCrLf;
+        Boolean typeUpdFlg = false;
 
         public FormSandwich()
         {
@@ -44,6 +45,29 @@ namespace BreadMaster
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
                         dataGridView1.DataSource = dataTable;
+
+
+                        string idToSelect = textBoxId.Text; // 選択したいID
+                        string idColumnName = "ID"; // IDが格納されている列名
+
+                        // 1. 一旦、既存の選択を解除
+                        dataGridView1.ClearSelection();
+
+                        // 2. 指定したIDの行を探して選択
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            // セル値がNULLでないか確認し、一致する行を探す
+                            if (row.Cells[idColumnName].Value != null &&
+                                row.Cells[idColumnName].Value.ToString() == idToSelect)
+                            {
+                                row.Selected = true;
+                                // 必要であれば、その行へスクロール
+                                dataGridView1.FirstDisplayedScrollingRowIndex = row.Index;
+                                break; // 見つかったらループを抜ける
+                            }
+                        }
+
+
                         textBoxLog.Text = sCrLf + sql + textBoxLog.Text;
                     }
 
@@ -185,6 +209,37 @@ namespace BreadMaster
                 MessageBox.Show("ソース名が入力されていません。");
                 return;
             }
+            if (textBoxName.Modified == false & typeUpdFlg )
+            {
+
+                    string sqlUpd = "UPDATE sandwich_master SET type_id = :typeid WHERE id = :id";
+                    try
+                    {
+                        using (OracleConnection connection = new OracleConnection(connectionString))
+                        {
+                            connection.Open();
+                            Console.WriteLine("接続成功");
+                            textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
+                            using (OracleCommand command = new OracleCommand(sqlUpd, connection))
+                            {
+                                command.Parameters.Add("typeid", OracleDbType.Int32).Value =
+                                    string.IsNullOrWhiteSpace(textBoxTypeId.Text) ? (object)DBNull.Value : int.Parse(textBoxTypeId.Text);
+                                command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxId.Text)));
+                                int rowsAffected = command.ExecuteNonQuery();
+                                textBoxLog.Text = sCrLf + $"{rowsAffected} 行が更新されました。" + textBoxLog.Text;
+                                MessageBox.Show($"{rowsAffected} 行が更新されました。");
+                                FormSandwich_Load(sender, e);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
+                        Console.WriteLine($"エラー: {ex.Message}");
+                    }
+                    return;
+            }
+
             if (textBoxName.Modified == false)
             {
                 MessageBox.Show("ソース名が変更されていません。");
@@ -226,14 +281,15 @@ namespace BreadMaster
             textBoxName.Clear();
             textBoxTName.Clear();
             textBoxTypeId.Clear();
+            typeUpdFlg = false;
             FormSandwich_Load(sender, e);
         }
 
         private void buttonType_Click(object sender, EventArgs e)
         {
             FormT f = new FormT();
-            textBoxTName.Text = f.getname();
-            textBoxTypeId.Text = f.getid();
+            f.setname(textBoxTName.Text);
+            f.setid(textBoxTypeId.Text);
             f.ShowDialog(this);
             if (f.DialogResult == DialogResult.OK)
             {
@@ -302,8 +358,29 @@ namespace BreadMaster
         {
             textBoxTName.Clear();
             textBoxTypeId.Clear();
+            typeUpdFlg = false;
         }
 
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            // 行が選択されている場合のみ処理
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                if (string.IsNullOrWhiteSpace(textBoxId.Text) == false)
+                {
+                    DataGridViewRow row = dataGridView1.SelectedRows[0];
+                    //textBoxId.Text = row.Cells["id"].Value?.ToString();
+                    //textBoxName.Text = row.Cells["sandwich_name"].Value?.ToString();
+                    textBoxTypeId.Text = row.Cells["typeid"].Value?.ToString();
+                    textBoxTName.Text = row.Cells["type_name"].Value?.ToString();
+                    setI();
+                }
+            }
+        }
 
+        private void textBoxTypeId_TextChanged(object sender, EventArgs e)
+        {
+            typeUpdFlg = true;
+        }
     }
 }

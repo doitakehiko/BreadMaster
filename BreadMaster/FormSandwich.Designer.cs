@@ -57,6 +57,7 @@
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(372, 297);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // textBoxLog
@@ -170,6 +171,7 @@
             this.textBoxTypeId.ReadOnly = true;
             this.textBoxTypeId.Size = new System.Drawing.Size(100, 19);
             this.textBoxTypeId.TabIndex = 37;
+            this.textBoxTypeId.TextChanged += new System.EventHandler(this.textBoxTypeId_TextChanged);
             // 
             // textBoxTName
             // 

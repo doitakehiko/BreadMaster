@@ -21,7 +21,15 @@ namespace BreadMaster
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Handles the Load event of the form by initializing the DataGridView and loading data from the database.
+        /// </summary>
+        /// <remarks>This method configures the DataGridView for read-only, single-row selection and
+        /// attempts to populate it with data from the database when the form loads. If the form is in update mode, the
+        /// DataGridView is disabled. Any connection or data retrieval errors are logged to the associated log
+        /// textbox.</remarks>
+        /// <param name="sender">The source of the event, typically the form being loaded.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void Form1_Load(object sender, EventArgs e)
         {
             if (flgUpd) {   
@@ -64,7 +72,15 @@ namespace BreadMaster
         }
   
 
-
+        /// <summary>
+        /// Handles the MouseClick event for the DataGridView to populate related text boxes with the values from the
+        /// selected row.
+        /// </summary>
+        /// <remarks>This method updates multiple text boxes with the values from the clicked row in the
+        /// DataGridView. Only clicks on valid data rows (excluding header and new row) will trigger the
+        /// update.</remarks>
+        /// <param name="sender">The source of the event, typically the DataGridView control.</param>
+        /// <param name="e">A MouseEventArgs that contains the event data, including mouse button and click location.</param>
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             // クリックされた位置の情報を取得
@@ -93,10 +109,20 @@ namespace BreadMaster
 
             }
         }
-
+        /// <summary>
+        /// Handles the Click event of the buttonF control by displaying the FormF dialog and updating related fields
+        /// based on user input.
+        /// </summary>
+        /// <remarks>If the user confirms the dialog by clicking OK, the method updates the associated
+        /// text boxes with values from FormF and sets the update flag if the input is valid. The form is reloaded after
+        /// the operation completes.</remarks>
+        /// <param name="sender">The source of the event, typically the buttonF control.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void buttonF_Click(object sender, EventArgs e)
         {
             FormF f = new FormF();
+            f.setid(textBoxFId.Text);
+            f.setname(textBoxFName.Text);
             f.ShowDialog(this);
             if (f.DialogResult == DialogResult.OK)
             {
@@ -110,10 +136,20 @@ namespace BreadMaster
             f.Dispose();
             Form1_Load(sender, e);
         }
-
+        /// <summary>
+        /// Handles the Click event of the Sauce button, allowing the user to select or edit sauce information using a
+        /// modal dialog.
+        /// </summary>
+        /// <remarks>If the user confirms their selection in the dialog, the sauce information in the
+        /// associated text boxes is updated. The method also reloads the form data after the dialog is
+        /// closed.</remarks>
+        /// <param name="sender">The source of the event, typically the Sauce button.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void buttonSauce_Click(object sender, EventArgs e)
         {
             FormSauce f = new FormSauce();
+            f.setid(textBoxSauceId.Text);
+            f.setname(textBoxSauce.Text);
             f.ShowDialog(this);
             if (f.DialogResult == DialogResult.OK)
             {
@@ -128,7 +164,14 @@ namespace BreadMaster
             f.Dispose();
             Form1_Load(sender, e);
         }
-
+        /// <summary>
+        /// Handles the Click event of the Sandwich button, displaying the sandwich selection dialog and updating the
+        /// related fields based on user input.
+        /// </summary>
+        /// <remarks>If the user confirms their selection in the sandwich dialog, the sandwich name and ID
+        /// fields are updated. The method also reloads the form data after the dialog is closed.</remarks>
+        /// <param name="sender">The source of the event, typically the Sandwich button.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void buttonSandwich_Click(object sender, EventArgs e)
         {
             FormSandwich f = new FormSandwich();
@@ -147,10 +190,20 @@ namespace BreadMaster
             f.Dispose();
             Form1_Load(sender, e);
         }
-
+        /// <summary>
+        /// Handles the Click event of the Button B control, displaying FormB as a modal dialog and updating related
+        /// fields based on user input.
+        /// </summary>
+        /// <remarks>If the user confirms their input in FormB, the method updates the associated text
+        /// boxes and sets the update flag if the input is valid. The form is reloaded after the operation
+        /// completes.</remarks>
+        /// <param name="sender">The source of the event, typically the Button B control.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void buttonB_Click(object sender, EventArgs e)
         {
             FormB f = new FormB();
+            f.setid(textBoxBId.Text);
+            f.setname(textBoxBName.Text);
             f.ShowDialog(this);
             if (f.DialogResult == DialogResult.OK)
             {
@@ -164,10 +217,19 @@ namespace BreadMaster
             f.Dispose();
             Form1_Load(sender, e);
         }
-
+        /// <summary>
+        /// Handles the Click event of the C button, displaying the FormR dialog and updating related text fields based
+        /// on the user's input.
+        /// </summary>
+        /// <remarks>If the user confirms their input in the FormR dialog, the method updates several text
+        /// fields with values from the dialog and sets an update flag if the input is valid. The form is reloaded after
+        /// the operation completes.</remarks>
+        /// <param name="sender">The source of the event, typically the button that was clicked.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void buttonC_Click(object sender, EventArgs e)
         {
             FormR f = new FormR();
+            f.setid(textBoxRId.Text);
             f.ShowDialog(this);
             if (f.DialogResult == DialogResult.OK)
             {
@@ -184,6 +246,10 @@ namespace BreadMaster
             f.Dispose();
             Form1_Load(sender, e);
         }
+        /// <summary>
+        /// Determines whether any of the relevant input text boxes contain a non-empty value.  
+        /// </summary>
+        /// <returns>true if at least one of the input text boxes is not empty; otherwise, false.</returns>
         private Boolean checkInput()
         {
             if (textBoxFId.Text != "" | textBoxSauceId.Text != "" | textBoxSandwichId.Text != "" | textBoxRId.Text != "" | textBoxBId.Text != "")
@@ -192,6 +258,11 @@ namespace BreadMaster
             }
             return false;
         }
+        /// <summary>
+        /// Handles the Click event of the Insert button, displaying the FormIns dialog for inserting new records and   
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonIns_Click(object sender, EventArgs e)
         {
             if (textBoxSandwichId.Text == "" | textBoxRId.Text == "" | textBoxBId.Text == "")
@@ -239,7 +310,11 @@ namespace BreadMaster
             Form1_Load(sender, e);
 
         }
-
+        /// <summary>
+        /// Handles the Click event of the Update button, displaying the FormUpd dialog for updating existing records and
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonUpd_Click(object sender, EventArgs e)
         {
             if (textBoxSandwichId.Text == "" | textBoxRId.Text == "" | textBoxBId.Text == "")
@@ -269,19 +344,31 @@ namespace BreadMaster
             Form1_Load(sender, e);
 
         }
-
+        /// <summary>
+        /// Handles the Click event of the buttonFClr control, clearing the text boxes related to the "F" entity.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonFClr_Click(object sender, EventArgs e)
         {
             textBoxFName.Clear();
             textBoxFId.Clear();
         }
-
+        /// <summary>
+        /// Handles the Click event of the buttonSauceClr control, clearing the text boxes related to the "Sauce" entity.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonSauceClr_Click(object sender, EventArgs e)
         {
             textBoxSauce.Clear();
             textBoxSauceId.Clear();
         }
-
+        /// <summary>
+        /// Handles the Click event of the buttonSandwichClr control, clearing the text boxes related to the "Sandwich" entity.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonReset_Click(object sender, EventArgs e)
         {
             textBoxId.Clear();
@@ -301,7 +388,11 @@ namespace BreadMaster
             flgUpd = false;
             Form1_Load(sender, e);
         }
-
+        /// <summary>
+        /// Handles the Click event of the buttonDel control, deleting the selected record from the database based on the ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonDel_Click(object sender, EventArgs e)
         {
             if (textBoxId.Text == "")
@@ -335,7 +426,11 @@ namespace BreadMaster
             }
 
         }
-
+        /// <summary>
+        /// Handles the Click event of the buttonList control, displaying the FormList dialog to show a list of records from the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonList_Click(object sender, EventArgs e)
         {
             FormList f = new FormList();

@@ -40,12 +40,6 @@ end;
 
 alter trigger sandwich_ingredients_trigger enable;
 
-INSERT INTO sandwich_ingredients ( sandwich_id, ingredients_id ) VALUES (1, 1);
-
-INSERT INTO sandwich_ingredients ( sandwich_id, ingredients_id ) VALUES (1, 2);
-
-INSERT INTO sandwich_ingredients ( sandwich_id, ingredients_id ) VALUES (1, 3);
-
 SELECT * FROM sandwich_ingredients, sandwich_master, ingredients_master
 WHERE sandwich_ingredients.sandwich_id = sandwich_master.id
 AND sandwich_ingredients.ingredients_id = ingredients_master.id;

@@ -42,5 +42,3 @@ end;
 alter trigger bread_name_trigger enable;
 
 
-INSERT INTO bread_name_master ( bread_name ) VALUES ('���[�N�V���[�E�v�f�B���O');
-SELECT * FROM bread_name_master;

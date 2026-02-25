@@ -202,5 +202,14 @@ namespace BreadMaster
         {
             return textBoxName.Text;
         }
+        public void setid(string id)
+        {
+            textBoxId.Text = id;
+        }
+
+        public void setname(string name)
+        {
+            textBoxName.Text = name;
+        }
     }
 }

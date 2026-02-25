@@ -246,7 +246,7 @@ namespace BreadMaster
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            textBoxSIId.Text = BreadMasterAppConstants.getCurrentSequenceValue(connection, sql2).ToString();
+                            textBoxIId.Text = BreadMasterAppConstants.getCurrentSequenceValue(connection, sql2).ToString();
                         }
                         textBoxLog.Text = sCrLf + $"{rowsAffected} 行が挿入されました。" + textBoxLog.Text;
                         MessageBox.Show($"{rowsAffected} 行が挿入されました。");
@@ -331,14 +331,33 @@ namespace BreadMaster
 
         private void textBoxIName_TextChanged(object sender, EventArgs e)
         {
-            string filterText = textBoxIName.Text;
-            if (string.IsNullOrWhiteSpace(filterText))
+
+        }
+
+        private void SearchAndSelectFirstRow(string searchText)
+        {
+            // bindingSource1 は DataGridView.DataSource に設定されているものとします
+            // 例: bindingSource1.DataSource = dt; (DataTable等)
+
+            // 1. フィルタ処理 (検索)
+            if (string.IsNullOrEmpty(searchText))
             {
-                bindingSource1.Filter = null;
+                bindingSource1.RemoveFilter();
             }
             else
             {
-                bindingSource1.Filter = string.Format("ingredients_name LIKE '%{0}%'", filterText.Replace("'", "''"));
+                // Name列が検索文字列を含む場合をフィルタリング
+                bindingSource1.Filter = $"ingredients_name LIKE '%{searchText}%'";
+            }
+
+            // 2. 検索結果が1件以上あるか確認
+            if (bindingSource1.Count > 0)
+            {
+                // 3. 先頭（0番目）を選択する
+                bindingSource1.Position = 0;
+
+                // (任意) DataGridViewのフォーカスを確実にする場合
+                dataGridView1.Focus();
             }
         }
         // C#
@@ -357,6 +376,34 @@ namespace BreadMaster
                 int rowIndex = hit.RowIndex;
                 if (rowIndex < 0 || rowIndex >= dataGridViewAdd.Rows.Count - 1) return;
                 textBoxSIId.Text = dataGridViewAdd.Rows[rowIndex].Cells[5].Value.ToString();
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            // 行が選択されている場合のみ処理
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                if (string.IsNullOrWhiteSpace(textBoxId.Text) == false)
+                {
+                    DataGridViewRow row = dataGridView1.SelectedRows[0];
+                    textBoxIId.Text = row.Cells["ID"].Value?.ToString();
+                    textBoxIName.Text = row.Cells["ingredients_name"].Value?.ToString();
+                    setI();
+                }
+            }
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = textBoxFilter.Text;
+            if (string.IsNullOrWhiteSpace(filterText))
+            {
+                bindingSource1.Filter = null;
+            }
+            else
+            {
+                SearchAndSelectFirstRow(filterText.Replace("'", "''"));
             }
         }
     }

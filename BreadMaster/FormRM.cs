@@ -41,6 +41,8 @@ namespace BreadMaster
 
                         // DataGridViewにデータをバインド [2]
                         dataGridView1.DataSource = dataTable;
+
+
                         textBoxLog.Text = sCrLf + sql + textBoxLog.Text;
                     }
                 }

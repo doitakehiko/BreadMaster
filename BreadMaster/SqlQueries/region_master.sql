@@ -44,7 +44,6 @@ end;
 alter trigger region_master_trigger enable;
 
 
-INSERT INTO region_master ( region_name, country_id ) VALUES ('ƒCƒ“ƒOƒ‰ƒ“ƒh', 23);
 SELECT * FROM region_master;
 
 update region_master set region_name = :name, ountry_id = :code where id = 1;

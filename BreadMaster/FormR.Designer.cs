@@ -130,6 +130,7 @@
             // 
             this.textBoxRName.Location = new System.Drawing.Point(78, 5);
             this.textBoxRName.Name = "textBoxRName";
+            this.textBoxRName.ReadOnly = true;
             this.textBoxRName.Size = new System.Drawing.Size(249, 19);
             this.textBoxRName.TabIndex = 32;
             // 

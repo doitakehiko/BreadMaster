@@ -40,5 +40,4 @@ end;
 alter trigger filling_master_trigger enable;
 
 
-INSERT INTO filling_master ( filling_name ) VALUES ('ヨークシャー・プディング・スモークサーモン・オープンサンドイッチのフィリング');
 SELECT * FROM filling_master;

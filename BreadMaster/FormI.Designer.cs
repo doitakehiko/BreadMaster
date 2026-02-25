@@ -46,6 +46,9 @@
             this.textBoxSIId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdd)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +86,7 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(124, 100);
+            this.buttonDel.Location = new System.Drawing.Point(95, 101);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 23);
             this.buttonDel.TabIndex = 39;
@@ -93,7 +96,7 @@
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(205, 101);
+            this.buttonUpd.Location = new System.Drawing.Point(176, 101);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(75, 23);
             this.buttonUpd.TabIndex = 38;
@@ -103,11 +106,11 @@
             // 
             // buttonIns
             // 
-            this.buttonIns.Location = new System.Drawing.Point(287, 99);
+            this.buttonIns.Location = new System.Drawing.Point(257, 99);
             this.buttonIns.Name = "buttonIns";
-            this.buttonIns.Size = new System.Drawing.Size(75, 23);
+            this.buttonIns.Size = new System.Drawing.Size(105, 23);
             this.buttonIns.TabIndex = 37;
-            this.buttonIns.Text = "追加";
+            this.buttonIns.Text = "食材マスター追加";
             this.buttonIns.UseVisualStyleBackColor = true;
             this.buttonIns.Click += new System.EventHandler(this.buttonIns_Click);
             // 
@@ -145,6 +148,7 @@
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(350, 375);
             this.dataGridView1.TabIndex = 33;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // dataGridViewAdd
@@ -219,11 +223,40 @@
             this.label2.TabIndex = 84;
             this.label2.Text = "各サンドイッチの食材リスト";
             // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(144, 45);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(219, 19);
+            this.textBoxFilter.TabIndex = 85;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(109, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 86;
+            this.label3.Text = "検索";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(376, 263);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 87;
+            this.label4.Text = "食材登録";
+            // 
             // FormI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 686);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxFilter);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSIId);
@@ -272,5 +305,8 @@
         private System.Windows.Forms.TextBox textBoxSIId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxFilter;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
