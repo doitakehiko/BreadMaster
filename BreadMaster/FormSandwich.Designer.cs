@@ -43,8 +43,9 @@
             this.textBoxTypeId = new System.Windows.Forms.TextBox();
             this.textBoxTName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonTClr = new System.Windows.Forms.Button();
+            this.buttonTUpd = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.buttonTypeClr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -171,7 +172,6 @@
             this.textBoxTypeId.ReadOnly = true;
             this.textBoxTypeId.Size = new System.Drawing.Size(100, 19);
             this.textBoxTypeId.TabIndex = 37;
-            this.textBoxTypeId.TextChanged += new System.EventHandler(this.textBoxTypeId_TextChanged);
             // 
             // textBoxTName
             // 
@@ -190,15 +190,15 @@
             this.label1.TabIndex = 39;
             this.label1.Text = "タイプID";
             // 
-            // buttonTClr
+            // buttonTUpd
             // 
-            this.buttonTClr.Location = new System.Drawing.Point(796, 12);
-            this.buttonTClr.Name = "buttonTClr";
-            this.buttonTClr.Size = new System.Drawing.Size(84, 23);
-            this.buttonTClr.TabIndex = 40;
-            this.buttonTClr.Text = "タイプクリア";
-            this.buttonTClr.UseVisualStyleBackColor = true;
-            this.buttonTClr.Click += new System.EventHandler(this.buttonTClr_Click);
+            this.buttonTUpd.Location = new System.Drawing.Point(796, 12);
+            this.buttonTUpd.Name = "buttonTUpd";
+            this.buttonTUpd.Size = new System.Drawing.Size(84, 23);
+            this.buttonTUpd.TabIndex = 40;
+            this.buttonTUpd.Text = "タイプ更新";
+            this.buttonTUpd.UseVisualStyleBackColor = true;
+            this.buttonTUpd.Click += new System.EventHandler(this.buttonTUpd_Click);
             // 
             // dataGridView2
             // 
@@ -209,13 +209,24 @@
             this.dataGridView2.Size = new System.Drawing.Size(382, 300);
             this.dataGridView2.TabIndex = 41;
             // 
+            // buttonTypeClr
+            // 
+            this.buttonTypeClr.Location = new System.Drawing.Point(794, 123);
+            this.buttonTypeClr.Name = "buttonTypeClr";
+            this.buttonTypeClr.Size = new System.Drawing.Size(84, 23);
+            this.buttonTypeClr.TabIndex = 42;
+            this.buttonTypeClr.Text = "タイプクリア";
+            this.buttonTypeClr.UseVisualStyleBackColor = true;
+            this.buttonTypeClr.Click += new System.EventHandler(this.buttonTypeClr_Click);
+            // 
             // FormSandwich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 505);
+            this.Controls.Add(this.buttonTypeClr);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.buttonTClr);
+            this.Controls.Add(this.buttonTUpd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxTName);
             this.Controls.Add(this.textBoxTypeId);
@@ -258,7 +269,8 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonTClr;
+        private System.Windows.Forms.Button buttonTUpd;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button buttonTypeClr;
     }
 }

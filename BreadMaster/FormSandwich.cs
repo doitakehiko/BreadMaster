@@ -16,7 +16,6 @@ namespace BreadMaster
     {
         string connectionString = BreadMasterAppConstants.connectionString;
         string sCrLf = BreadMasterAppConstants.sCrLf;
-        Boolean typeUpdFlg = false;
 
         public FormSandwich()
         {
@@ -206,43 +205,17 @@ namespace BreadMaster
         {
             if (textBoxName.Text == "")
             {
-                MessageBox.Show("ソース名が入力されていません。");
+                MessageBox.Show("サンドイッチ名が入力されていません。");
                 return;
             }
-            if (textBoxName.Modified == false & typeUpdFlg )
+            if (textBoxName.Modified == false  )
             {
 
-                    string sqlUpd = "UPDATE sandwich_master SET type_id = :typeid WHERE id = :id";
-                    try
-                    {
-                        using (OracleConnection connection = new OracleConnection(connectionString))
-                        {
-                            connection.Open();
-                            Console.WriteLine("接続成功");
-                            textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
-                            using (OracleCommand command = new OracleCommand(sqlUpd, connection))
-                            {
-                                command.Parameters.Add("typeid", OracleDbType.Int32).Value =
-                                    string.IsNullOrWhiteSpace(textBoxTypeId.Text) ? (object)DBNull.Value : int.Parse(textBoxTypeId.Text);
-                                command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxId.Text)));
-                                int rowsAffected = command.ExecuteNonQuery();
-                                textBoxLog.Text = sCrLf + $"{rowsAffected} 行が更新されました。" + textBoxLog.Text;
-                                MessageBox.Show($"{rowsAffected} 行が更新されました。");
-                                FormSandwich_Load(sender, e);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
-                        Console.WriteLine($"エラー: {ex.Message}");
-                    }
-                    return;
             }
 
             if (textBoxName.Modified == false)
             {
-                MessageBox.Show("ソース名が変更されていません。");
+                MessageBox.Show("サンドイッチ名が変更されていません。");
                 return;
             }
             else
@@ -281,7 +254,6 @@ namespace BreadMaster
             textBoxName.Clear();
             textBoxTName.Clear();
             textBoxTypeId.Clear();
-            typeUpdFlg = false;
             FormSandwich_Load(sender, e);
         }
 
@@ -296,7 +268,6 @@ namespace BreadMaster
                 textBoxTName.Text = f.getname();
                 textBoxTypeId.Text = f.getid();
             }
-            f.Dispose();
             f.Dispose();
         }
 
@@ -354,12 +325,7 @@ namespace BreadMaster
             textBoxName.Text = name;
         }
 
-        private void buttonTClr_Click(object sender, EventArgs e)
-        {
-            textBoxTName.Clear();
-            textBoxTypeId.Clear();
-            typeUpdFlg = false;
-        }
+
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -378,9 +344,39 @@ namespace BreadMaster
             }
         }
 
-        private void textBoxTypeId_TextChanged(object sender, EventArgs e)
+        private void buttonTUpd_Click(object sender, EventArgs e)
         {
-            typeUpdFlg = true;
+            string sqlUpd = "UPDATE sandwich_master SET type_id = :typeid WHERE id = :id";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    connection.Open();
+                    Console.WriteLine("接続成功");
+                    textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
+                    using (OracleCommand command = new OracleCommand(sqlUpd, connection))
+                    {
+                        command.Parameters.Add("typeid", OracleDbType.Int32).Value =
+                            string.IsNullOrWhiteSpace(textBoxTypeId.Text) ? (object)DBNull.Value : int.Parse(textBoxTypeId.Text);
+                        command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxId.Text)));
+                        int rowsAffected = command.ExecuteNonQuery();
+                        textBoxLog.Text = sCrLf + $"{rowsAffected} 行が更新されました。" + textBoxLog.Text;
+                        MessageBox.Show($"{rowsAffected} 行が更新されました。");
+                        FormSandwich_Load(sender, e);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
+                Console.WriteLine($"エラー: {ex.Message}");
+            }
+        }
+
+        private void buttonTypeClr_Click(object sender, EventArgs e)
+        {
+            textBoxTName.Clear();
+            textBoxTypeId.Clear();
         }
     }
 }
