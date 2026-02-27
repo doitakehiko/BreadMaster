@@ -100,7 +100,7 @@ namespace BreadMaster
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-                            textBoxId.Text = BreadMasterAppConstants.getCurrentSequenceValue(connection, sql2).ToString();
+                            textBoxIId.Text = BreadMasterAppConstants.getCurrentSequenceValue(connection, sql2).ToString();
                         }
                         textBoxLog.Text = sCrLf + $"{rowsAffected} 行が挿入されました。" + textBoxLog.Text;
                         MessageBox.Show($"{rowsAffected} 行が挿入されました。");
