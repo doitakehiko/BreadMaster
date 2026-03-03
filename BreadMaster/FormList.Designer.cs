@@ -60,6 +60,7 @@
             this.Controls.Add(this.textBoxLog);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormList";
+            this.Text = "FormList";
             this.Load += new System.EventHandler(this.FormList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
