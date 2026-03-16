@@ -1,0 +1,9 @@
+insert into type_master (type_name ) values ('ティー・サンドイッチ');
+insert into type_master (type_name ) values ('パニノ');
+insert into type_master (type_name ) values ('パネットーネ・ガストロノミコ');
+insert into type_master (type_name ) values ('トラメッツィーノ');
+insert into type_master (type_name ) values ('タルティーヌ');
+insert into type_master (type_name ) values ('ボカディーヨ');
+insert into type_master (type_name ) values ('スモーブロー');
+insert into type_master (type_name ) values ('ブリヌイ');
+insert into type_master (type_name ) values ('サンドウィッチェス・デ・ミガ');
