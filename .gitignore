@@ -365,4 +365,4 @@ FodyWeavers.xsd
 
 # oracle database password
 AppConstants.cs
-/BreadMaster/SqlQueries/insertBread.txt
+
