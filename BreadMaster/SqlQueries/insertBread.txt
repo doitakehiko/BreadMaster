@@ -1,0 +1,14 @@
+insert into bread_name_master (bread_name ) values ('ルクブロー');
+insert into bread_name_master (bread_name ) values ('グラウブロート');
+insert into bread_name_master (bread_name ) values ('ムフォレッタ');
+insert into bread_name_master (bread_name ) values ('プチャ');
+insert into bread_name_master (bread_name ) values ('コカ・デ・サン・フアン');
+insert into bread_name_master (bread_name ) values ('ミユカカ');
+insert into bread_name_master (bread_name ) values ('フヌカカ');
+insert into bread_name_master (bread_name ) values ('タフトゥーン');
+insert into bread_name_master (bread_name ) values ('サムーン');
+insert into bread_name_master (bread_name ) values ('セミタ');
+insert into bread_name_master (bread_name ) values ('キューバン・スイート・ブレッド');
+insert into bread_name_master (bread_name ) values ('マヨルカ');
+insert into bread_name_master (bread_name ) values ('アレパ');
+insert into bread_name_master (bread_name ) values ('マラケッタ');
