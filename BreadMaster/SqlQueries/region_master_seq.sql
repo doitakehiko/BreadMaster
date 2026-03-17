@@ -1,0 +1,6 @@
+CREATE SEQUENCE region_master_seq
+INCREMENT BY 1
+START WITH 1;
+
+
+

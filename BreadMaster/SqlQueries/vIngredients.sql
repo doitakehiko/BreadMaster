@@ -12,4 +12,3 @@ WHERE
 	sandwich_ingredients.sandwich_id = sandwich_master.id
 	AND sandwich_ingredients.ingredients_id = ingredients_master.id;
 
-SELECT * FROM vIngredients WHERE sid = :id;

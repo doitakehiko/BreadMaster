@@ -9,4 +9,3 @@ FROM
 WHERE 
 	sandwich_master.type_id = type_master.id(+);
 
-SELECT * FROM vSandwich;
