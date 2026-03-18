@@ -216,13 +216,8 @@
     <Content Include="SqlQueries\bread_name_master.sql" />
     <Content Include="SqlQueries\country_code_master.sql" />
     <Content Include="SqlQueries\country_master.sql" />
-    <Content Include="SqlQueries\drop.txt" />
     <Content Include="SqlQueries\filling_master.sql" />
     <Content Include="SqlQueries\ingredients_master.sql" />
-    <Content Include="SqlQueries\insertBread.txt" />
-    <Content Include="SqlQueries\insertIngredients.txt" />
-    <Content Include="SqlQueries\insertSandwich.txt" />
-    <Content Include="SqlQueries\insertSauce.txt" />
     <Content Include="SqlQueries\region_master.sql" />
     <Content Include="SqlQueries\sandwich_ingredients.sql" />
     <Content Include="SqlQueries\sandwich_master.sql" />
