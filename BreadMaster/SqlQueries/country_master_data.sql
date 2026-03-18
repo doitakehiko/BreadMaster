@@ -1,9 +1,3 @@
-SPOOL s:\java\bread\country_code_master_insert_log.txt;
-SET TERMOUT OFF;
-SET ECHO ON;
-SET FEEDBACK ON;
-SET DEFINE OFF;
-
 insert into country_master　(country_name_jp  , country_name_en  ) values ( '北朝鮮 (朝鮮民主主義人民共和国)' , 'Korea(Demo.)' );
 insert into country_master　(country_name_jp  , country_name_en  ) values ( '東ティモール' , 'East Timor' );
 insert into country_master　(country_name_jp  , country_name_en  ) values ( '台湾' , 'Taiwan' );

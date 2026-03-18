@@ -11,6 +11,5 @@ begin
         :new.update_date   :=localtimestamp;
     end if;
 end;
-
+/
 alter trigger sandwich_master_trigger enable;
-

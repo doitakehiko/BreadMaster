@@ -7,6 +7,4 @@ CREATE TABLE region_master (
 	CONSTRAINT fk_country FOREIGN KEY (country_id) REFERENCES country_master(id),
 	PRIMARY KEY (id)
 );
-
 ALTER TABLE region_master ADD CONSTRAINT region_name_unique UNIQUE (region_name);
-

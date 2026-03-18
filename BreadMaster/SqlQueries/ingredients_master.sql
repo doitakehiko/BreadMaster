@@ -5,6 +5,4 @@ CREATE TABLE ingredients_master (
 	update_date date  NOT NULL ,
 	PRIMARY KEY (id)
 );
-
 ALTER TABLE ingredients_master ADD CONSTRAINT ingredients_name_unique UNIQUE (ingredients_name);
-

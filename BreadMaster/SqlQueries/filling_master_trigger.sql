@@ -10,5 +10,5 @@ begin
         :new.update_date   :=localtimestamp;
     end if;
 end;
-
+/
 alter trigger filling_master_trigger enable;

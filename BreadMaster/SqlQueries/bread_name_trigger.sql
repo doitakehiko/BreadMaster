@@ -1,5 +1,5 @@
-create or replace trigger type_master_trigger
-before insert or update on type_master
+create or replace trigger bread_name_trigger
+before insert or update on bread_name_master
     for each row
 begin
 
@@ -12,5 +12,4 @@ begin
     end if;
 end;
 /
-alter trigger type_master_trigger enable;
-
+alter trigger bread_name_trigger enable;

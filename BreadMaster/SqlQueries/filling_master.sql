@@ -1,4 +1,4 @@
-CREATE TABLE filling_master (
+CREATE TABLE filling_master(
 	id NUMBER NOT NULL,
 	filling_name VARCHAR2(256)  NOT NULL ,
 	insert_date date NOT NULL ,

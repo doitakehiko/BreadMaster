@@ -5,10 +5,4 @@ CREATE TABLE sauce_master (
 	update_date date  NOT NULL ,
 	PRIMARY KEY (id)
 );
-
 ALTER TABLE sauce_master ADD CONSTRAINT sauce_name_unique UNIQUE (sauce_name);
-
-
-
-
-

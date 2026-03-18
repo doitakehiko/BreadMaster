@@ -30,4 +30,3 @@ WHERE 	bread_master.filling_id = filling_master.id(+)
 	AND region_master.country_id = country_master.id
 	AND country_master.id = country_code_master.country_master_id
 	AND bread_master.bread_name_id = bread_name_master.id;
-

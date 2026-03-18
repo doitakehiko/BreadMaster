@@ -1,11 +1,3 @@
-SPOOL s:\java\bread\country_master_insert_log.txt;
-SET TERMOUT OFF;
-SET ECHO ON;
-SET FEEDBACK ON;
-SET DEFINE OFF;
-
-
-
 insert into country_code_master ( country_code ) values ( 850 );
 insert into country_code_master ( country_code ) values ( 670 );
 insert into country_code_master ( country_code ) values ( 886 );

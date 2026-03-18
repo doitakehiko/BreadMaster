@@ -10,5 +10,5 @@ begin
         :new.update_date   :=localtimestamp;
     end if;
 end;
-
+/
 alter trigger bread_trigger enable;

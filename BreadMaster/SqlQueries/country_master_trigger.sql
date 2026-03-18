@@ -11,7 +11,6 @@ begin
         :new.update_date   :=localtimestamp;
     end if;
 end;
-
+/
 ALTER TRIGGER cm_id_insert_trigger ENABLE;
 ALTER TRIGGER country_master_trigger ENABLE;
-

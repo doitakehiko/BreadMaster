@@ -7,6 +7,3 @@ CREATE TABLE sandwich_ingredients (
 	CONSTRAINT fk_bread FOREIGN KEY (sandwich_id) REFERENCES sandwich_master(id),	CONSTRAINT fk_ingredients FOREIGN KEY (ingredients_id) REFERENCES ingredients_master(id),
 	PRIMARY KEY (id)
 );
-
-
-

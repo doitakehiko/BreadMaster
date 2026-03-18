@@ -6,6 +6,3 @@ CREATE TABLE type_master (
 	PRIMARY KEY ( id )
 );
 ALTER TABLE type_master ADD CONSTRAINT type_name_unique UNIQUE (type_name);
-
-
-

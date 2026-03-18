@@ -7,8 +7,4 @@ CREATE TABLE sandwich_master (
 	CONSTRAINT fk_type FOREIGN KEY (type_id) REFERENCES type_master(id),
 	PRIMARY KEY (id)
 );
-
-
 ALTER TABLE sandwich_master ADD CONSTRAINT sandwich_name_unique UNIQUE (sandwich_name);
-
-

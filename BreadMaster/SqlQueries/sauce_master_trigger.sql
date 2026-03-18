@@ -11,5 +11,5 @@ begin
         :new.update_date   :=localtimestamp;
     end if;
 end;
-
+/
 alter trigger sauce_master_trigger enable;
