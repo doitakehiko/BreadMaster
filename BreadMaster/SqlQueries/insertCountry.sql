@@ -1,8 +1,8 @@
---@ountry_master_data.sql
---@ountry_code_master_data.sql
 SET SERVEROUTPUT ON;
 SET DEFINE OFF;
 
+
+--@country_master_data.sql
 DECLARE
 -- バインド変数の定義
 v_country_data t_country_tab;
