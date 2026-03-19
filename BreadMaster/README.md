@@ -12,6 +12,8 @@ BreadMasterはサンドイッチのフィリング、ソース、パン名、地
 AppConstants.cs を追加する必要がある
 AppConstants.cs の内容は以下の通りです。
 
+
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,6 +72,10 @@ namespace BreadMaster
         }
     }
 }
+```
+
+
+
 
 
   - connectionString の値を、実際のOracleデータベースの接続情報に置き換えてください。
@@ -82,7 +88,8 @@ namespace BreadMaster
   テーブル仕様は以下リンクを参照してください。
   https://docs.google.com/spreadsheets/d/1lou3vT2Q1-e9iwCM1pCaya94zIDec8buK7mHt0aWlbA/edit?usp=sharing
 
-  ##  インストール方法  0. Oracle Database 19c Enterprise Edition Releaseをセットアップする
+  ##  インストール方法
+  0. Oracle Database 19c Enterprise Edition Releaseをセットアップする
   1. Oracle Data Access Components (ODAC) をインストールします。
   2. sqlclient をインストールします。
        - NuGet パッケージマネージャーを使用して、Oracle.DataAccess.Client をプロジェクトに追加します。
