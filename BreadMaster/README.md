@@ -79,6 +79,16 @@ namespace BreadMaster
   SqlQueries以下のテーブルを必要とする
 
 
+  テーブル仕様は以下リンクを参照してください。
+  https://docs.google.com/spreadsheets/d/1lou3vT2Q1-e9iwCM1pCaya94zIDec8buK7mHt0aWlbA/edit?usp=sharing
 
+  ##  インストール方法  0. Oracle Database 19c Enterprise Edition Releaseをセットアップする
+  1. Oracle Data Access Components (ODAC) をインストールします。
+  2. sqlclient をインストールします。
+       - NuGet パッケージマネージャーを使用して、Oracle.DataAccess.Client をプロジェクトに追加します。
+  3. sqlplus で install.sql を実行して、必要なテーブルとシーケンスを作成します。 
+
+  ## アンインストール方法
+  1. sqlplus で uninstall.sql を実行して、作成したテーブルとシーケンスを削除します。
 
   
