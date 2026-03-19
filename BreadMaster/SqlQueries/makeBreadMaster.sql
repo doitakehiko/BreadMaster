@@ -26,8 +26,6 @@
 @ingredients_master.sql
 @imid_insert_trigger.sql
 @ingredients_master_trigger.sql
-@sandwich_master_seq.sql
-@sandwich_master.sql
 @smid_insert_trigger.sql
 @sandwich_master_trigger.sql
 @sandwich_ingredients_seq.sql

@@ -5,6 +5,13 @@ drop view VREGION;
 drop view VSANDWICH;
 drop view VMASTER;
 
+
+drop SEQUENCE sandwich_ingredients_seq;
+drop TABLE sandwich_ingredients;
+
+drop SEQUENCE bread_seq;
+drop table bread_master;
+
 drop SEQUENCE filling_master_seq;
 drop TABLE filling_master;
 drop SEQUENCE sauce_master_seq;
@@ -23,21 +30,15 @@ drop SEQUENCE country_master_seq;
 drop TABLE country_master;
 
 
+
+drop SEQUENCE sandwich_master_seq;
+drop TABLE sandwich_master;
+
 drop SEQUENCE type_master_seq;
 drop TABLE type_master;
 
 
-drop SEQUENCE sandwich_master_seq;
-drop TABLE sandwich_master;
 
 drop SEQUENCE ingredients_master_seq;
 drop TABLE ingredients_master;
 
-drop SEQUENCE sandwich_master_seq;
-drop TABLE sandwich_master;
-
-drop SEQUENCE sandwich_ingredients_seq;
-drop TABLE sandwich_ingredients;
-
-drop SEQUENCE bread_seq;
-drop table bread_master;

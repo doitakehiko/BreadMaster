@@ -1,3 +1,5 @@
+SET DEFINE OFF;
+
 insert into sandwich_master ( sandwich_name ) values ('ヨークシャー・プディング・スモークサーモン・オープンサンドイッチ');
 insert into sandwich_master ( sandwich_name ) values ('チップ・バティ');
 insert into sandwich_master ( sandwich_name ) values ('プラウマンズ・ランチ');

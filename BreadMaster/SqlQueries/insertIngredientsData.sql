@@ -226,7 +226,6 @@ insert into ingredients_master (  ingredients_name ) values ('べビーアーテ
 insert into ingredients_master (  ingredients_name ) values ('スカリオン');
 insert into ingredients_master (  ingredients_name ) values ('ホワイトハム');
 insert into ingredients_master (  ingredients_name ) values ('ドライバジル');
-insert into ingredients_master (  ingredients_name ) values ('オムレツ');
 insert into ingredients_master (  ingredients_name ) values ('シェーブルチーズ');
 insert into ingredients_master (  ingredients_name ) values ('キュウリ');
 insert into ingredients_master (  ingredients_name ) values ('グリーンペッパー');
@@ -259,7 +258,6 @@ insert into ingredients_master (  ingredients_name ) values ('アーティチョ
 insert into ingredients_master (  ingredients_name ) values ('ハーブソルト');
 insert into ingredients_master (  ingredients_name ) values ('きのこ');
 insert into ingredients_master (  ingredients_name ) values ('ガーリックパウダー');
-insert into ingredients_master (  ingredients_name ) values ('オムレツ');
 insert into ingredients_master (  ingredients_name ) values ('マッシュポテト');
 insert into ingredients_master (  ingredients_name ) values ('ピーナッツバター');
 insert into ingredients_master (  ingredients_name ) values ('イカリング');
@@ -502,7 +500,6 @@ insert into ingredients_master (  ingredients_name ) values ('玉ねぎのソテ
 insert into ingredients_master (  ingredients_name ) values ('スパイシー・ブラウンマスタード');
 insert into ingredients_master (  ingredients_name ) values ('ビーフフロス');
 insert into ingredients_master (  ingredients_name ) values ('ボローニャ・ソーセージ');
-insert into ingredients_master (  ingredients_name ) values ('ローストポーク');
 insert into ingredients_master (  ingredients_name ) values ('缶詰のボストンスタイル・ベイクドビーンズ');
 insert into ingredients_master (  ingredients_name ) values ('マシュマロフラッフ');
 insert into ingredients_master (  ingredients_name ) values ('魚のフライ白身魚');
@@ -548,7 +545,6 @@ insert into ingredients_master (  ingredients_name ) values ('ポピーシード
 insert into ingredients_master (  ingredients_name ) values ('スイート・チリソース');
 insert into ingredients_master (  ingredients_name ) values ('パイナップル・レリッシュ');
 insert into ingredients_master (  ingredients_name ) values ('米酢');
-insert into ingredients_master (  ingredients_name ) values ('紫キャベツ');
 insert into ingredients_master (  ingredients_name ) values ('スパム');
 insert into ingredients_master (  ingredients_name ) values ('レッドペッパーフレーク');
 insert into ingredients_master (  ingredients_name ) values ('しょうゆ');
@@ -694,7 +690,6 @@ insert into ingredients_master (  ingredients_name ) values ('ドライ・プル
 insert into ingredients_master (  ingredients_name ) values ('ミント・ヨーグルトソース');
 insert into ingredients_master (  ingredients_name ) values ('ツナとジャガイモのサラダ');
 insert into ingredients_master (  ingredients_name ) values ('缶詰のツナ');
-insert into ingredients_master (  ingredients_name ) values ('オムレツ');
 insert into ingredients_master (  ingredients_name ) values ('トマトハ');
 insert into ingredients_master (  ingredients_name ) values ('リサ');
 insert into ingredients_master (  ingredients_name ) values ('ラムカレー');
