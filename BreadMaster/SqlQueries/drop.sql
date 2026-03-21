@@ -1,3 +1,8 @@
+drop TYPE t_country_tab;
+drop TYPE t_country_obj;
+drop PROCEDURE cno;
+drop PROCEDURE configcheck;
+
 drop view VINGREDIENTS;
 drop view VCOUNTRY;
 drop view VREGIONMASTER;
