@@ -86,10 +86,15 @@ namespace BreadMaster
 
 
   テーブル仕様は以下リンクを参照してください。
+
   https://docs.google.com/spreadsheets/d/1lou3vT2Q1-e9iwCM1pCaya94zIDec8buK7mHt0aWlbA/edit?usp=sharing
 
-  ##  インストール方法
+  ## 事前準備
   0. Oracle Database 19c Enterprise Edition Releaseをセットアップする
+  1. checkconfig.sql を sqlplus で実行して、権限を確認してください。NGが出る場合は2.に進んでください。
+  2. setup_user.sql を sqlplus でsysdba権限で実行して、ユーザー作成と権限付与を行ってください。
+  
+  ##  インストール方法
   1. Oracle Data Access Components (ODAC) をインストールします。
   2. sqlclient をインストールします。
        - NuGet パッケージマネージャーを使用して、Oracle.DataAccess.Client をプロジェクトに追加します。
