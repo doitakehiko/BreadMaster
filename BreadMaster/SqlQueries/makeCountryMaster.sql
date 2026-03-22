@@ -7,3 +7,7 @@
 @country_code_master.sql
 @ccd_id_insert_trigger.sql
 @country_code_master_trigger.sql
+@t_country_obj.sql
+@cno.sql
+@country_master_data.sql
+@insertCountry.sql

@@ -238,4 +238,3 @@ insert into country_master　(country_name_jp  , country_name_en  ) values ( '�
 insert into country_master　(country_name_jp  , country_name_en  ) values ( 'ハワイ' , 'Hawaii' );
 insert into country_master　(country_name_jp  , country_name_en  ) values ( 'サイパン' , 'Saipan' );
 insert into country_master　(country_name_jp  , country_name_en  ) values ( 'グアム' , 'Guam' );
-SPOOL OFF;
