@@ -37,35 +37,6 @@ namespace BreadMaster
             dataGridViewAdd.MultiSelect = false;
             dataGridViewAdd.ReadOnly = true;
 
-
-            /* string sql = "SELECT * FROM ingredients_master";
-             try
-             {
-                 using (OracleConnection connection = new OracleConnection(connectionString))
-                 {
-                     connection.Open();
-                     Console.WriteLine("接続成功");
-                     textBoxLog.Text = sCrLf + "接続成功" + textBoxLog.Text;
-                     using (OracleCommand command = new OracleCommand(sql, connection))
-                     {
-                         OracleDataAdapter adapter = new OracleDataAdapter(sql, connection);
-                         DataTable dataTable = new DataTable();
-                         adapter.Fill(dataTable);
-
-                         // DataGridViewにデータをバインド [2]
-                         bindingSource1.DataSource = dataTable;
-                         //dataGridView1.DataSource = dataTable;
-                         dataGridView1.DataSource = bindingSource1;
-                         textBoxLog.Text = sCrLf + sql + textBoxLog.Text;
-                     }
-                 }
-             }
-             catch (Exception ex)
-             {
-                 textBoxLog.Text = sCrLf + $"エラー: {ex.Message}" + textBoxLog.Text;
-
-                 Console.WriteLine($"エラー: {ex.Message}");
-             }*/
             LoadData();
             setI();
         }
@@ -132,19 +103,14 @@ namespace BreadMaster
                         {
                             textBoxIId.Text = BreadMasterAppConstants.getCurrentSequenceValue(connection, sql2).ToString();
                         }
-                        using (OracleCommand cmdCommit = new OracleCommand("COMMIT", connection))
-                        {
-                            cmdCommit.ExecuteNonQuery();
-                        }
+
                         textBoxLog.Text = sCrLf + $"{rowsAffected} 行が挿入されました。" + textBoxLog.Text;
                         MessageBox.Show($"{rowsAffected} 行が挿入されました。");
                         UpdateFlag = true;
                         LoadData();
 
                         selectGridUpdIns(textBoxIName.Text);
-                        //dataGridView1_SelectionChanged(sender, e);
-                        //dataGridView1_MouseClick(sender, new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0));
-                        //FormI_Load(sender, e);
+
                     }
                 }
             }
@@ -156,24 +122,7 @@ namespace BreadMaster
 
 
         }
-        /*private void selectGridUpdIns(string selectText)
-        {
-            bindingSource1.Filter = $"ingredients_name LIKE '%{selectText}%'";
 
-            if (bindingSource1.Count > 0)
-            {
-                // 一旦 -1 にしてから 0 にすると、同じ行が選択されていても強制的にイベントを走らせることができます
-                bindingSource1.Position = -1;
-                bindingSource1.Position = 0;
-            }
-            else
-            {
-                // 0件の場合は入力をクリアするなどの処理
-                textBoxIId.Clear();
-                textBoxIName.Clear();
-            }
-
-        }*/
         private void selectGridUpdIns(string selectText)
         {
             // 全件表示したい場合は Filter = "" または null にする
@@ -259,10 +208,7 @@ namespace BreadMaster
                             command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxIId.Text)));
                             int rowsAffected = command.ExecuteNonQuery();
                             textBoxLog.Text = sCrLf + $"{rowsAffected} 行が更新されました。" + textBoxLog.Text;
-                            using (OracleCommand cmdCommit = new OracleCommand("COMMIT", connection))
-                            {
-                                cmdCommit.ExecuteNonQuery();
-                            }
+
                             MessageBox.Show($"{rowsAffected} 行が更新されました。");
                             UpdateFlag = true;
                             LoadData();
