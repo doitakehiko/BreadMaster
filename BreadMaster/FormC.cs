@@ -95,7 +95,7 @@ namespace BreadMaster
             if (hit.Type == DataGridViewHitTestType.Cell)
             {
                 int rowIndex = hit.RowIndex;
-                if (rowIndex < 0 || rowIndex >= dataGridView1.Rows.Count - 1) return;
+                if (rowIndex < 0 || rowIndex > dataGridView1.Rows.Count - 1) return;
 
                 // 先に値をローカルに退避（TextChanged の副作用を防ぐ）
                 DataGridViewRow row = dataGridView1.Rows[rowIndex];
