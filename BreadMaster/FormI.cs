@@ -21,6 +21,7 @@ namespace BreadMaster
         private BindingSource bindingSource1 = new BindingSource();
         private Boolean UpdateFlag = false;
         private Boolean InsertFlag = false;
+        private Boolean DeleteFlag = false;
         public FormI()
         {
             InitializeComponent();
@@ -76,6 +77,7 @@ namespace BreadMaster
             dataGridViewAdd.Rows.Clear();
             InsertFlag = false;
             UpdateFlag = false;
+            DeleteFlag = false;
             FormI_Load(sender, e);
         }
 
@@ -108,9 +110,23 @@ namespace BreadMaster
                         MessageBox.Show($"{rowsAffected} 行が挿入されました。");
                         UpdateFlag = true;
                         LoadData();
+                        if (textBoxFilter.Text != "" && textBoxIName.Text != "")
+                        {
+                            selectGridUpdIns(textBoxFilter.Text);
 
-                        selectGridUpdIns(textBoxIName.Text);
-
+                        }
+                        else if (textBoxFilter.Text == "" && textBoxIName.Text != "")
+                        {
+                            selectGridUpdIns(textBoxIName.Text);
+                        }
+                        else if (textBoxFilter.Text != "" && textBoxIName.Text == "")
+                        {
+                            selectGridUpdIns(textBoxFilter.Text);
+                        }   
+                        else if (textBoxFilter.Text == "" && textBoxIName.Text == "")
+                        {
+                            selectGridUpdIns("");
+                        }
                     }
                 }
             }
@@ -213,7 +229,23 @@ namespace BreadMaster
                             UpdateFlag = true;
                             LoadData();
 
-                            selectGridUpdIns(textBoxIName.Text);
+                            if (textBoxFilter.Text != "" && textBoxIName.Text != "")
+                            {
+                                selectGridUpdIns(textBoxFilter.Text);
+
+                            }
+                            else if (textBoxFilter.Text == "" && textBoxIName.Text != "")
+                            {
+                                selectGridUpdIns(textBoxIName.Text);
+                            }
+                            else if (textBoxFilter.Text != "" && textBoxIName.Text == "")
+                            {
+                                selectGridUpdIns(textBoxFilter.Text);
+                            }
+                            else if (textBoxFilter.Text == "" && textBoxIName.Text == "")
+                            {
+                                selectGridUpdIns("");
+                            }
                         }
                     }
                 }
@@ -246,10 +278,27 @@ namespace BreadMaster
                         command.Parameters.Add(new OracleParameter("id", int.Parse(textBoxIId.Text)));
                         int rowsAffected = command.ExecuteNonQuery();
                         MessageBox.Show($"{rowsAffected} 行が削除されました。");
-                        buttonReset_Click(sender, e);
-                        FormI_Load(sender, e);
+                        DeleteFlag = true;
+                        LoadData();
+                        if (textBoxFilter.Text != "" && textBoxIName.Text != "")
+                        {
+                            selectGridUpdIns(textBoxFilter.Text);
+
+                        }
+                        else if (textBoxFilter.Text == "" && textBoxIName.Text != "")
+                        {
+                            selectGridUpdIns(textBoxIName.Text);
+                        }
+                        else if (textBoxFilter.Text != "" && textBoxIName.Text == "")
+                        {
+                            selectGridUpdIns(textBoxFilter.Text);
+                        }
+                        else if (textBoxFilter.Text == "" && textBoxIName.Text == "")
+                        {
+                            selectGridUpdIns("");
+                        }
                     }
-                }
+}
             }
             catch (Exception ex)
             {
@@ -391,9 +440,6 @@ namespace BreadMaster
             {
                 // 3. 先頭（0番目）を選択する
                 bindingSource1.Position = 0;
-
-                // (任意) DataGridViewのフォーカスを確実にする場合
-                dataGridView1.Focus();
             }
         }
         // C#
@@ -420,9 +466,7 @@ namespace BreadMaster
             // 行が選択されている場合のみ処理
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                //if (string.IsNullOrWhiteSpace(textBoxId.Text) == false)
-                //{
-                if (UpdateFlag == false && InsertFlag == false)
+                if (UpdateFlag == false || InsertFlag == false || DeleteFlag == false)
                 {
 
                     DataGridViewRow row = dataGridView1.SelectedRows[0];
@@ -430,14 +474,13 @@ namespace BreadMaster
                     textBoxIName.Text = row.Cells["ingredients_name"].Value?.ToString();
                 }
                 setI();
-               //}
             }
         }
 
         private void textBoxFilter_TextChanged(object sender, EventArgs e)
         {
             string filterText = textBoxFilter.Text;
-            if (string.IsNullOrWhiteSpace(filterText))
+            if (string.IsNullOrWhiteSpace(filterText) )
             {
                 bindingSource1.Filter = null;
             }
