@@ -307,6 +307,7 @@ namespace BreadMaster
                 textBoxNameJp.Text = f.getcnamejp();
                 textBoxNameEn.Text = f.getcnameen();
                 textBoxCId.Text = f.getcid();
+                FormR_Load(sender, e);
             }
             f.Dispose();
         }
