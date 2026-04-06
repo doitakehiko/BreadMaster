@@ -38,6 +38,8 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(12, 12);
+            this.textBoxId.Location = new System.Drawing.Point(12, 27);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(100, 19);
@@ -69,7 +71,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(118, 12);
+            this.textBoxName.Location = new System.Drawing.Point(118, 27);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(670, 19);
             this.textBoxName.TabIndex = 3;
@@ -135,11 +137,31 @@
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 12);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "ブレッドID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(118, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 12);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "ブレッド名";
+            // 
             // FormB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 488);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonCancel);
@@ -171,5 +193,7 @@
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

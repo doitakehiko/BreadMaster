@@ -49,13 +49,15 @@
             this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(369, 140);
+            this.buttonReset.Location = new System.Drawing.Point(368, 160);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(69, 23);
             this.buttonReset.TabIndex = 42;
@@ -66,7 +68,7 @@
             // buttonOK
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Location = new System.Drawing.Point(714, 633);
+            this.buttonOK.Location = new System.Drawing.Point(713, 653);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 41;
@@ -77,7 +79,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(14, 635);
+            this.buttonCancel.Location = new System.Drawing.Point(13, 655);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 40;
@@ -86,7 +88,7 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(95, 101);
+            this.buttonDel.Location = new System.Drawing.Point(94, 121);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 23);
             this.buttonDel.TabIndex = 39;
@@ -96,7 +98,7 @@
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(176, 101);
+            this.buttonUpd.Location = new System.Drawing.Point(175, 121);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(75, 23);
             this.buttonUpd.TabIndex = 38;
@@ -106,7 +108,7 @@
             // 
             // buttonIns
             // 
-            this.buttonIns.Location = new System.Drawing.Point(257, 99);
+            this.buttonIns.Location = new System.Drawing.Point(256, 121);
             this.buttonIns.Name = "buttonIns";
             this.buttonIns.Size = new System.Drawing.Size(105, 23);
             this.buttonIns.TabIndex = 37;
@@ -116,7 +118,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(119, 13);
+            this.textBoxName.Location = new System.Drawing.Point(118, 33);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.ReadOnly = true;
             this.textBoxName.Size = new System.Drawing.Size(670, 19);
@@ -124,7 +126,7 @@
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(13, 13);
+            this.textBoxId.Location = new System.Drawing.Point(12, 33);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(100, 19);
@@ -132,7 +134,7 @@
             // 
             // textBoxLog
             // 
-            this.textBoxLog.Location = new System.Drawing.Point(13, 536);
+            this.textBoxLog.Location = new System.Drawing.Point(12, 556);
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.Size = new System.Drawing.Size(776, 73);
@@ -142,7 +144,7 @@
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 140);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 160);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 21;
@@ -154,7 +156,7 @@
             // dataGridViewAdd
             // 
             this.dataGridViewAdd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAdd.Location = new System.Drawing.Point(444, 140);
+            this.dataGridViewAdd.Location = new System.Drawing.Point(443, 160);
             this.dataGridViewAdd.Name = "dataGridViewAdd";
             this.dataGridViewAdd.RowTemplate.Height = 21;
             this.dataGridViewAdd.Size = new System.Drawing.Size(346, 375);
@@ -163,7 +165,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(378, 288);
+            this.buttonAdd.Location = new System.Drawing.Point(377, 308);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(50, 23);
             this.buttonAdd.TabIndex = 44;
@@ -173,7 +175,7 @@
             // 
             // textBoxIName
             // 
-            this.textBoxIName.Location = new System.Drawing.Point(95, 72);
+            this.textBoxIName.Location = new System.Drawing.Point(94, 92);
             this.textBoxIName.Name = "textBoxIName";
             this.textBoxIName.Size = new System.Drawing.Size(267, 19);
             this.textBoxIName.TabIndex = 45;
@@ -181,17 +183,17 @@
             // 
             // buttonAddDel
             // 
-            this.buttonAddDel.Location = new System.Drawing.Point(714, 99);
+            this.buttonAddDel.Location = new System.Drawing.Point(628, 119);
             this.buttonAddDel.Name = "buttonAddDel";
-            this.buttonAddDel.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddDel.Size = new System.Drawing.Size(160, 23);
             this.buttonAddDel.TabIndex = 46;
-            this.buttonAddDel.Text = "削除";
+            this.buttonAddDel.Text = "各サンドイッチから食材を削除";
             this.buttonAddDel.UseVisualStyleBackColor = true;
             this.buttonAddDel.Click += new System.EventHandler(this.buttonAddDel_Click);
             // 
             // textBoxIId
             // 
-            this.textBoxIId.Location = new System.Drawing.Point(12, 72);
+            this.textBoxIId.Location = new System.Drawing.Point(11, 92);
             this.textBoxIId.Name = "textBoxIId";
             this.textBoxIId.ReadOnly = true;
             this.textBoxIId.Size = new System.Drawing.Size(75, 19);
@@ -199,7 +201,7 @@
             // 
             // textBoxSIId
             // 
-            this.textBoxSIId.Location = new System.Drawing.Point(633, 99);
+            this.textBoxSIId.Location = new System.Drawing.Point(534, 121);
             this.textBoxSIId.Name = "textBoxSIId";
             this.textBoxSIId.ReadOnly = true;
             this.textBoxSIId.Size = new System.Drawing.Size(75, 19);
@@ -208,7 +210,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 48);
+            this.label1.Location = new System.Drawing.Point(11, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 83;
@@ -217,7 +219,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 48);
+            this.label2.Location = new System.Drawing.Point(441, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 12);
             this.label2.TabIndex = 84;
@@ -225,7 +227,7 @@
             // 
             // textBoxFilter
             // 
-            this.textBoxFilter.Location = new System.Drawing.Point(144, 45);
+            this.textBoxFilter.Location = new System.Drawing.Point(143, 65);
             this.textBoxFilter.Name = "textBoxFilter";
             this.textBoxFilter.Size = new System.Drawing.Size(219, 19);
             this.textBoxFilter.TabIndex = 85;
@@ -234,7 +236,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 48);
+            this.label3.Location = new System.Drawing.Point(108, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 86;
@@ -243,17 +245,37 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(376, 263);
+            this.label4.Location = new System.Drawing.Point(375, 283);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 87;
             this.label4.Text = "食材登録";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 12);
+            this.label5.TabIndex = 88;
+            this.label5.Text = "サンドイッチID";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(116, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 12);
+            this.label6.TabIndex = 89;
+            this.label6.Text = "サンドイッチ名";
+            // 
             // FormI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 686);
+            this.ClientSize = new System.Drawing.Size(826, 724);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxFilter);
@@ -308,5 +330,7 @@
         private System.Windows.Forms.TextBox textBoxFilter;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

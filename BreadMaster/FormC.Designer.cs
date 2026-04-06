@@ -37,12 +37,16 @@
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.textBoxCode = new System.Windows.Forms.TextBox();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxLog
             // 
-            this.textBoxLog.Location = new System.Drawing.Point(12, 379);
+            this.textBoxLog.Location = new System.Drawing.Point(12, 407);
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.Size = new System.Drawing.Size(776, 59);
@@ -51,7 +55,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(776, 332);
@@ -60,7 +64,7 @@
             // 
             // textBoxNameJp
             // 
-            this.textBoxNameJp.Location = new System.Drawing.Point(76, 12);
+            this.textBoxNameJp.Location = new System.Drawing.Point(76, 40);
             this.textBoxNameJp.Name = "textBoxNameJp";
             this.textBoxNameJp.Size = new System.Drawing.Size(312, 19);
             this.textBoxNameJp.TabIndex = 2;
@@ -68,7 +72,7 @@
             // 
             // textBoxNameEn
             // 
-            this.textBoxNameEn.Location = new System.Drawing.Point(395, 12);
+            this.textBoxNameEn.Location = new System.Drawing.Point(395, 40);
             this.textBoxNameEn.Name = "textBoxNameEn";
             this.textBoxNameEn.Size = new System.Drawing.Size(329, 19);
             this.textBoxNameEn.TabIndex = 3;
@@ -77,7 +81,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(12, 453);
+            this.buttonCancel.Location = new System.Drawing.Point(12, 481);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 11;
@@ -87,7 +91,7 @@
             // buttonOK
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Location = new System.Drawing.Point(713, 453);
+            this.buttonOK.Location = new System.Drawing.Point(713, 481);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 12;
@@ -97,7 +101,7 @@
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(12, 12);
+            this.textBoxId.Location = new System.Drawing.Point(12, 40);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(59, 19);
@@ -105,14 +109,14 @@
             // 
             // textBoxCode
             // 
-            this.textBoxCode.Location = new System.Drawing.Point(730, 12);
+            this.textBoxCode.Location = new System.Drawing.Point(730, 40);
             this.textBoxCode.Name = "textBoxCode";
             this.textBoxCode.Size = new System.Drawing.Size(52, 19);
             this.textBoxCode.TabIndex = 22;
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(93, 453);
+            this.buttonReset.Location = new System.Drawing.Point(93, 481);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 32;
@@ -120,11 +124,51 @@
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 12);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "国ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(74, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "国名日本語";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(393, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "国名英語";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(728, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "国番号";
+            // 
             // FormC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 488);
+            this.ClientSize = new System.Drawing.Size(800, 521);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.textBoxCode);
             this.Controls.Add(this.textBoxId);
@@ -154,5 +198,9 @@
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.TextBox textBoxCode;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

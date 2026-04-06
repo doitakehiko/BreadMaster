@@ -43,6 +43,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxCNameJp = new System.Windows.Forms.TextBox();
             this.textBoxCNameEn = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,14 +112,14 @@
             // 
             // textBoxRName
             // 
-            this.textBoxRName.Location = new System.Drawing.Point(13, 47);
+            this.textBoxRName.Location = new System.Drawing.Point(95, 47);
             this.textBoxRName.Name = "textBoxRName";
-            this.textBoxRName.Size = new System.Drawing.Size(776, 19);
+            this.textBoxRName.Size = new System.Drawing.Size(694, 19);
             this.textBoxRName.TabIndex = 46;
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(13, 11);
+            this.textBoxId.Location = new System.Drawing.Point(95, 12);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(100, 19);
@@ -170,25 +174,65 @@
             // 
             // textBoxCNameJp
             // 
-            this.textBoxCNameJp.Location = new System.Drawing.Point(14, 83);
+            this.textBoxCNameJp.Location = new System.Drawing.Point(95, 83);
             this.textBoxCNameJp.Name = "textBoxCNameJp";
             this.textBoxCNameJp.ReadOnly = true;
-            this.textBoxCNameJp.Size = new System.Drawing.Size(775, 19);
+            this.textBoxCNameJp.Size = new System.Drawing.Size(694, 19);
             this.textBoxCNameJp.TabIndex = 56;
             // 
             // textBoxCNameEn
             // 
-            this.textBoxCNameEn.Location = new System.Drawing.Point(14, 117);
+            this.textBoxCNameEn.Location = new System.Drawing.Point(95, 117);
             this.textBoxCNameEn.Name = "textBoxCNameEn";
             this.textBoxCNameEn.ReadOnly = true;
-            this.textBoxCNameEn.Size = new System.Drawing.Size(775, 19);
+            this.textBoxCNameEn.Size = new System.Drawing.Size(694, 19);
             this.textBoxCNameEn.TabIndex = 57;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "地域名";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "国名日本語";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "国名英語";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 12);
+            this.label5.TabIndex = 61;
+            this.label5.Text = "地域名ID";
             // 
             // FormRM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 688);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxCNameEn);
             this.Controls.Add(this.textBoxCNameJp);
             this.Controls.Add(this.label1);
@@ -230,5 +274,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxCNameJp;
         private System.Windows.Forms.TextBox textBoxCNameEn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

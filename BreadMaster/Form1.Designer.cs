@@ -61,6 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonList = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(12, 12);
+            this.textBoxId.Location = new System.Drawing.Point(26, 12);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(44, 19);
@@ -361,11 +362,21 @@
             this.buttonList.UseVisualStyleBackColor = true;
             this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(16, 12);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "ID";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1286, 763);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonList);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.label5);
@@ -443,6 +454,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonList;
+        private System.Windows.Forms.Label label6;
     }
 }
 
