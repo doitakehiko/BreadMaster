@@ -44,7 +44,6 @@ insert into ingredients_master (  ingredients_name ) values ('エール');
 insert into ingredients_master (  ingredients_name ) values ('ドライ・マスタード');
 insert into ingredients_master (  ingredients_name ) values ('スクランブルエッグ');
 insert into ingredients_master (  ingredients_name ) values ('オイル漬けアンチョビフィレ');
-insert into ingredients_master (  ingredients_name ) values ('チャイプ');
 insert into ingredients_master (  ingredients_name ) values ('ケッパー');
 insert into ingredients_master (  ingredients_name ) values ('ポテトチップス');
 insert into ingredients_master (  ingredients_name ) values ('バナナ');
