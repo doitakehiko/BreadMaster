@@ -778,3 +778,4 @@ insert into ingredients_master (  ingredients_name ) values ('カンガルー肉
 insert into ingredients_master (  ingredients_name ) values ('ビーツ');
 insert into ingredients_master (  ingredients_name ) values ('ベジマイト');
 insert into ingredients_master (  ingredients_name ) values ('イタリアンサラミ');
+insert into ingredients_master (  ingredients_name ) values ('グリーンカール');
